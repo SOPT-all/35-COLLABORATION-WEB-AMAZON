@@ -1,0 +1,35 @@
+{
+  "status": "success",
+  "data": [
+    {
+      "id": 1,
+      "image": "https://github.com/user-attachments/assets/43335cd5-f154-4119-a466-b8a7c0dbc6ab",
+      "brand": "Fullstar",
+      "name": "실버웨어 서랍 오거나이저, 주방용 확장 가능한 식기 트레이",
+      "isBestSeller": true,
+      "rating": 4.5,
+      "reviewCount": 111835,
+      "price": 42000,
+      "discountRate": 5,
+      "isFreeDelivery": true,
+      "deliveryDate": "2024-11-16",
+      "freeDeliveryStandard": 50000,
+      "isInCart": true
+    },
+    {
+      "id": 2,
+      "image": "https://github.com/user-attachments/assets/43335cd5-f154-4119-a466-b8a7c0dbc6ab",
+      "brand": "TrendPlain",
+      "name": "주방용 473.2ml(16온스) 올리브 오일 디스펜서 병 - 요리, 에어프라이어",
+      "isBestSeller": true,
+      "rating": 4.5,
+      "reviewCount": 8470,
+      "price": 12900,
+      "discountRate": 0,
+      "isFreeDelivery": true,
+      "deliveryDate": "2024-11-16",
+      "freeDeliveryStandard": 0,
+      "isInCart": false
+    }
+  ]
+}

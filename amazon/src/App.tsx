@@ -1,10 +1,9 @@
-
 import { Global, ThemeProvider } from '@emotion/react';
+import { RouterProvider } from 'react-router-dom';
 
+import router from './routes/Router';
 import GlobalStyle from './styles/GlobalStyles';
 import theme from './styles/theme';
-import { RouterProvider } from "react-router-dom";
-import router from "./routes/Router";
 
 function App() {
   return (
@@ -12,7 +11,6 @@ function App() {
       <Global styles={GlobalStyle} />
       <RouterProvider router={router} />
     </ThemeProvider>
-    </>
   );
 }
 
