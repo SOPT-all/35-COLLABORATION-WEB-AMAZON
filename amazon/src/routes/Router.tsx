@@ -1,24 +1,22 @@
-import { createBrowserRouter } from "react-router-dom";
-import Home from "../pages/home/Home";
-import Dev from "../pages/Dev/Dev";
-import SearchResult from "../pages/searchResult/searchResult";
+import { createBrowserRouter } from 'react-router-dom';
 
+import Dev from '../pages/Dev/Dev';
+import Home from '../pages/home/Home';
+import SearchResult from '../pages/searchResult/SearchResult';
 
 const router = createBrowserRouter([
-    {
-        path: "/",
-        element: <Home />,
-    },
-    {
-            
-        path: "/dev",
-        element: <Dev />,
-    },
-    {
-        path: "/searchResult",
-        element: <SearchResult />,
-    },
-
+  {
+    path: '/',
+    element: <Home />,
+  },
+  {
+    path: '/dev',
+    element: <Dev />,
+  },
+  {
+    path: '/searchResult',
+    element: <SearchResult />,
+  },
 ]);
 
-export default router
+export default router;
