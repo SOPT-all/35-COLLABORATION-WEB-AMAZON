@@ -1,13 +1,17 @@
+
+import { Global, ThemeProvider } from '@emotion/react';
+
+import GlobalStyle from './styles/GlobalStyles';
+import theme from './styles/theme';
 import { RouterProvider } from "react-router-dom";
 import router from "./routes/Router";
 
-
 function App() {
   return (
-    <>
-      <h1>Amazon</h1>
-      <p className="read-the-docs">웨비들 화이팅🌊</p>
+    <ThemeProvider theme={theme}>
+      <Global styles={GlobalStyle} />
       <RouterProvider router={router} />
+    </ThemeProvider>
     </>
   );
 }
