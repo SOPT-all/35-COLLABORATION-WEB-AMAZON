@@ -27,8 +27,3 @@ export const breadcrumbCurrentBtn = css`
   ${theme.font.title_b_16};
   color: ${theme.color.black};
 `;
-
-export const arrowStyle = css`
-  color: ${theme.color.gray2};
-  margin: 0 0.5rem;
-`;
