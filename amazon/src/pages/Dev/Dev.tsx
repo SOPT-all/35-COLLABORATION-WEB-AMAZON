@@ -1,7 +1,15 @@
+import MainCarousel from '@components';
+
+import { sectionStyle } from './Dev.style';
+
 const Dev = () => {
-    return (
-      <div>Dev</div>
-    )
-  }
-  
-  export default Dev
+  return (
+    <>
+      <div css={sectionStyle}>
+        <MainCarousel />
+      </div>
+    </>
+  );
+};
+
+export default Dev;
