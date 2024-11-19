@@ -9,9 +9,9 @@ export const cardContainer = css`
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+  border: 1px solid ${theme.color.gray3};
+  background: ${theme.color.white1};
   border-radius: 4px;
-  border: 1px solid var(${theme.color.gray3}, #ccc);
-  background: var(${theme.color.white1}, #fff);
 `;
 
 export const imageBox = css`
@@ -34,8 +34,7 @@ export const ProductBox = css`
   align-items: flex-start;
   gap: 4px;
   h1 {
-    color: var(${theme.color.black}, #0f1111);
-    text-overflow: ellipsis;
+    color: ${theme.color.black};
     white-space: normal;
 
     ${theme.font.body_r_14};
