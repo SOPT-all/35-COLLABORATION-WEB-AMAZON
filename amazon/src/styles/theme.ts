@@ -7,22 +7,22 @@ const AmazonEmberFont = css`
 const theme = {
   color: {
     red: '#f21c00',
-    orange1: 'ff9900',
-    orange2: 'cc7900',
+    orange1: '#ff9900',
+    orange2: '#cc7900',
     blue: '#0066ff',
     navy: '#131a22',
-    navy2: '222f3e',
+    navy2: '#222f3e',
     navy3: '#37475a',
     navy3_hover: '#51657b',
 
     black: '#0f1111',
-    white1: 'ffffff',
-    white2: 'f5f5f5',
+    white1: '#ffffff',
+    white2: '#f5f5f5',
 
     gray1: '#565959',
     gray2: '#848688',
     gray3: '#cccccc',
-    gray4: 'f0f2f2',
+    gray4: '#f0f2f2',
   },
 
   font: {
