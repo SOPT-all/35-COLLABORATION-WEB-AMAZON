@@ -1,41 +1,10 @@
-import { css, useTheme } from '@emotion/react';
+import { useTheme } from '@emotion/react';
 import { useState } from 'react';
 import { ThemeType } from '../../../styles/theme';
 import FilterList from './FilterList';
 import SelectedFilters from './SelectedFilters';
 import PriceFilter from './FilterPrice';
-
-const containerStyle = (theme: ThemeType) => css`
-  flex-direction: column;
-  padding: 24px 28px;
-  border-radius: 8px;
-  border: 1px solid ${theme.color.gray3};
-  background-color: ${theme.color.white1};
-  width: 292px;
-  height: auto;
-  margin-bottom: 8px;
-`;
-
-const titleStyle = (theme: ThemeType) => css`
-  ${theme.font.title_b_16};
-`;
-
-const sectionStyle = css`
-  gap: 8px;
-  display: flex;
-  width: 236px;
-  flex-direction: column;
-  align-items: flex-start;
-  const sectionStyle = css;
-
-
-  &:first-child {
-    margin-top: 0; /* 마지막 섹션은 간격 제거 */
-  }
-  &:last-child {
-    margin-bottom: 0; /* 마지막 섹션은 간격 제거 */
-  }
-`;
+import { containerStyle, sectionStyle, titleStyle } from './FilterContainer.style';
 
 const FilterContainer: React.FC = () => {
   const theme = useTheme() as ThemeType;
@@ -49,7 +18,6 @@ const FilterContainer: React.FC = () => {
   const handleFilterRemove = (filter: string) => {
     setSelectedFilters((prev) => prev.filter((item) => item !== filter));
   };
-  
 
   const handlePriceChange = (min: string, max: string) => {
     setPriceRange({ min, max });
@@ -119,7 +87,6 @@ const FilterContainer: React.FC = () => {
   const brandFilter = filterData.filter((filter) => filter.name === '브랜드');
   const conditionFilters = filterData.filter((filter) => filter.name === '상태');
   const colorFilters = filterData.filter((filter) => filter.name === '색상');
-
 
   return (
     <div css={containerStyle(theme)}>

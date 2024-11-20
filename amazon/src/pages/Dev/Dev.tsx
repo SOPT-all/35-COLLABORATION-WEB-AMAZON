@@ -21,14 +21,20 @@ const devPageStyle = css`
 
 const Dev = () => {
   return (
-  <div css={devPageStyle}>
+  <>
   <div css={sectionStyle}>
     {/* <MainCarousel /> */}
-    <FilterContainer />
   </div>
+  <div css={sectionStyle}>
+  <FilterContainer />
   </div>
+  </>
+
+
+
+
 
 );
 };
   
-  export default Dev
+  export default Dev;

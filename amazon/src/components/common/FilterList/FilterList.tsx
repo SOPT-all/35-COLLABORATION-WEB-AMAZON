@@ -13,6 +13,7 @@ const filterListStyle = (theme: ThemeType) => css`
   color: ${theme.color.black}; /* 텍스트 색상 */
 `;
 
+
 const FilterList: React.FC<FilterListProps> = ({ data, selectedFilters, onChange }) => {
   const theme = useTheme() as ThemeType; // useTheme를 통해 theme 가져오기
 

@@ -1,15 +1,5 @@
-/** FilterCondition.tsx */
-
-import { css } from '@emotion/react';
+import { conditionStyle } from './FilterCondition.style';
 import FilterCategory from './FilterCategory';
-
-const conditionStyle = css`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  width: 236px;
-  
-`;
 
 interface FilterConditionProps {
   selectedFilters: string[];
