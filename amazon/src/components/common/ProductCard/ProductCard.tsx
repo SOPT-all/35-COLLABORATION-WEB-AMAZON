@@ -17,46 +17,41 @@ import {
   rightArrowIcon,
   vectorIcon,
 } from './ProductCard.style';
+import formatDeliveryDate from '../../../utils/formatDeliveryDate';
 
-interface productDataProps {
-  image: string;
-  brand: string;
-  name: string;
-  isBestSeller: boolean;
-  rating: number;
-  reviewCount: number;
-  discountRate: number;
-  price: number;
-  discountedPrice: number;
-  isFreeDelivery: boolean;
-  deliveryDate: string;
-  freeDeliveryStandard: number;
+interface ProductDataProps {
+  product: {
+    image: string;
+    brand: string;
+    name: string;
+    isBestSeller: boolean;
+    rating: number;
+    reviewCount: number;
+    discountRate: number;
+    price: number;
+    discountedPrice: number;
+    isFreeDelivery: boolean;
+    deliveryDate: string;
+    freeDeliveryStandard: number;
+  };
 }
 
-const ProductCard = ({
-  image,
-  brand,
-  name,
-  isBestSeller,
-  rating,
-  reviewCount,
-  discountRate,
-  price,
-  discountedPrice,
-  isFreeDelivery,
-  deliveryDate,
-  freeDeliveryStandard,
-}: productDataProps) => {
-  // 날짜를 "00월 00일 0요일" 형식으로 변환하는 함수
-  const formatDeliveryDate = (dateString: string) => {
-    const date = new Date(dateString);
-    const month = date.getMonth() + 1;
-    const day = date.getDate();
-    const daysOfWeek = ['일', '월', '화', '수', '목', '금', '토'];
-    const dayOfWeek = daysOfWeek[date.getDay()]; // 요일 인덱스 가져오기
+const ProductCard = ({ product }: ProductDataProps) => {
+  const {
+    image,
+    brand,
+    name,
+    isBestSeller,
+    rating,
+    reviewCount,
+    discountRate,
+    price,
+    discountedPrice,
+    isFreeDelivery,
+    deliveryDate,
+    freeDeliveryStandard,
+  } = product;
 
-    return `${month}월 ${day}일 ${dayOfWeek}요일`;
-  };
   return (
     <div css={cardContainer}>
       <div css={imageBox}>
@@ -81,7 +76,7 @@ const ProductCard = ({
         {discountRate === 0 ? (
           <div css={noDiscountRatePrice}>
             {price.toLocaleString()}
-            <span>원</span>
+            <div>원</div>
           </div>
         ) : (
           <>
@@ -90,9 +85,9 @@ const ProductCard = ({
               <del>{price.toLocaleString()}</del>
             </div>
             <div css={discountRateText}>
-              <span> {`${discountRate}%`}</span>
-              <span>{discountedPrice.toLocaleString()}</span>
-              <span>원</span>
+              <div> {`${discountRate}%`}</div>
+              <div>{discountedPrice.toLocaleString()}</div>
+              <div>원</div>
             </div>
           </>
         )}

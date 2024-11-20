@@ -1,4 +1,4 @@
 import MainCarousel from './MainCarousel/MainCarousel';
-import ProductList from './ProductCard/ProductList';
+import ProductList from './ProductList/ProductList';
 
 export { MainCarousel, ProductList };

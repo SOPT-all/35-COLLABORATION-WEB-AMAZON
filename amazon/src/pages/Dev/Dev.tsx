@@ -7,6 +7,8 @@ const Dev = () => {
     <>
       <div css={sectionStyle}>
         <MainCarousel />
+      </div>
+      <div css={sectionStyle}>
         <ProductList />
       </div>
     </>

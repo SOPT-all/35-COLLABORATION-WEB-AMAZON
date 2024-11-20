@@ -4,54 +4,58 @@ import theme from '@styles/theme';
 
 export const cardContainer = css`
   display: flex;
-  width: 24.7rem;
-  height: 45rem;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+  width: 24.7rem;
+  height: 45rem;
   border: 1px solid ${theme.color.gray3};
-  background-color: ${theme.color.white1};
   border-radius: 4px;
+  background-color: ${theme.color.white1};
 `;
 
 export const imageBox = css`
   display: flex;
-  width: 100%;
-  height: 23.2rem;
-  position: relative;
   justify-content: center;
   align-items: center;
+  position: relative;
+  width: 100%;
+  height: 23.2rem;
+
   img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
   }
 `;
 
 export const bestSellerIcon = css`
-  width: 6.3rem;
-  height: 2.3rem;
   position: absolute;
   top: 0;
   left: 0;
+  width: 6.3rem;
+  height: 2.3rem;
 `;
 
 export const productBox = css`
   display: flex;
-  height: 22rem;
-  padding: 0.4rem 0.8rem 0.8rem 0.8rem;
   flex-direction: column;
   align-items: flex-start;
+  height: 22rem;
+  padding: 0.4rem 0.8rem 0.8rem 0.8rem;
   gap: 0.4rem;
+
   h2 {
     color: ${theme.color.black};
     white-space: normal;
 
     ${theme.font.body_r_14};
   }
+
   h3 {
     ${theme.font.title_b_20};
   }
+
   h4 {
     ${theme.font.body_b_10};
   }
@@ -59,9 +63,9 @@ export const productBox = css`
 
 export const productHeader = css`
   display: flex;
-  width: 100%;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
 
   h1 {
     display: flex;
@@ -83,11 +87,10 @@ export const cartIcon = css`
 
 export const ratingBox = css`
   display: flex;
-  gap: 0.4rem;
   align-items: center;
-
-  ${theme.font.body_r_10};
+  gap: 0.4rem;
   color: ${theme.color.orange1};
+  ${theme.font.body_r_10};
 `;
 
 export const ratingStarIcon = css`
@@ -98,17 +101,16 @@ export const ratingStarIcon = css`
 export const noDiscountRatePrice = css`
   display: flex;
   align-items: center;
-  color: ${theme.color.black};
-
-  ${theme.font.title_b_20};
   margin: 0.4rem 0.2rem 0 0;
+  color: ${theme.color.black};
+  ${theme.font.title_b_20};
 
-  span {
+  div {
     display: flex;
-    width: 1.3rem;
-    height: 1.8rem;
     flex-direction: column;
     justify-content: flex-end;
+    width: 1.3rem;
+    height: 1.8rem;
     ${theme.font.body_r_14};
   }
 `;
@@ -116,13 +118,14 @@ export const noDiscountRatePrice = css`
 export const countDiscountText = css`
   display: flex;
   align-items: center;
-  gap: 0.4rem;
   margin-top: -0.4rem;
+  gap: 0.4rem;
 
   span {
     color: ${theme.color.red};
     ${theme.font.body_b_10};
   }
+
   del {
     color: ${theme.color.gray2};
     ${theme.font.body_r_10};
@@ -132,24 +135,25 @@ export const countDiscountText = css`
 export const discountRateText = css`
   display: flex;
   align-items: center;
-  color: ${theme.color.black};
   margin-top: -0.4rem;
+  color: ${theme.color.black};
 
-  span:nth-child(1) {
+  div:nth-of-type(1) {
     color: ${theme.color.red};
     ${theme.font.title_b_16};
     margin-right: 0.4rem;
   }
-  span:nth-child(2) {
+
+  div:nth-of-type(2) {
     ${theme.font.title_b_20};
   }
-  span:nth-child(3) {
+
+  div:nth-of-type(3) {
     display: flex;
-    width: 1.3rem;
-    height: 1.8rem;
     flex-direction: column;
     justify-content: flex-end;
-
+    width: 1.3rem;
+    height: 1.8rem;
     ${theme.font.body_r_14};
   }
 `;
