@@ -47,3 +47,16 @@ export const searchIcon = css`
   width: 1.3rem;
   height: 1.3rem;
 `;
+
+export const pagenationContainer = css`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 101.2rem;
+  margin-top: 3.2rem;
+`;
+
+export const pagenation = css`
+  width: 42.3rem;
+  height: 4.7rem;
+`;
