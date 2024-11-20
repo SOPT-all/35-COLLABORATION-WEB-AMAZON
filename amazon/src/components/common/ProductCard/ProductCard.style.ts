@@ -139,9 +139,9 @@ export const discountRateText = css`
   color: ${theme.color.black};
 
   div:nth-of-type(1) {
+    margin-right: 0.4rem;
     color: ${theme.color.red};
     ${theme.font.title_b_16};
-    margin-right: 0.4rem;
   }
 
   div:nth-of-type(2) {

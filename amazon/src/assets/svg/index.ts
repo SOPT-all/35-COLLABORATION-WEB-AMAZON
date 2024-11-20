@@ -6,4 +6,6 @@ export { default as IcChevronRight } from './IcChevronRight';
 export { default as IcFreedelivery } from './IcFreedelivery';
 export { default as IcStar } from './IcStar';
 export { default as IcVector120 } from './IcVector120';
+export { default as IcBreadArrow } from './IcBreadArrow';
+
 export { default as Vite } from './Vite';

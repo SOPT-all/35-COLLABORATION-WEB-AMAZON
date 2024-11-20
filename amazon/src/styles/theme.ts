@@ -11,7 +11,7 @@ const theme = {
     orange2: '#cc7900',
     blue: '#0066ff',
     navy: '#131a22',
-    navy2: '222f3e',
+    navy2: '#222f3e',
     navy3: '#37475a',
     navy3_hover: '#51657b',
 
