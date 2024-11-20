@@ -1,4 +1,5 @@
 import { IcCart, IcChevronRight, IcStar, IcVector120, IcFreedelivery, IcBestseller } from '@svg';
+import formatDeliveryDate from '@utils';
 
 import {
   bestSellerIcon,
@@ -17,7 +18,6 @@ import {
   rightArrowIcon,
   vectorIcon,
 } from './ProductCard.style';
-import formatDeliveryDate from '../../../utils/formatDeliveryDate';
 
 interface ProductDataProps {
   product: {
@@ -76,7 +76,7 @@ const ProductCard = ({ product }: ProductDataProps) => {
         {discountRate === 0 ? (
           <div css={noDiscountRatePrice}>
             {price.toLocaleString()}
-            <div>원</div>
+            <span>원</span>
           </div>
         ) : (
           <>
@@ -85,9 +85,9 @@ const ProductCard = ({ product }: ProductDataProps) => {
               <del>{price.toLocaleString()}</del>
             </div>
             <div css={discountRateText}>
-              <div> {`${discountRate}%`}</div>
-              <div>{discountedPrice.toLocaleString()}</div>
-              <div>원</div>
+              <span> {`${discountRate}%`}</span>
+              <span>{discountedPrice.toLocaleString()}</span>
+              <span>원</span>
             </div>
           </>
         )}

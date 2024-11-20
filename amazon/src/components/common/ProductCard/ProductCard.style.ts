@@ -100,17 +100,12 @@ export const ratingStarIcon = css`
 
 export const noDiscountRatePrice = css`
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   margin: 0.4rem 0.2rem 0 0;
   color: ${theme.color.black};
   ${theme.font.title_b_20};
 
-  div {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    width: 1.3rem;
-    height: 1.8rem;
+  span {
     ${theme.font.body_r_14};
   }
 `;
@@ -134,26 +129,21 @@ export const countDiscountText = css`
 
 export const discountRateText = css`
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   margin-top: -0.4rem;
   color: ${theme.color.black};
 
-  div:nth-of-type(1) {
+  span:nth-of-type(1) {
     margin-right: 0.4rem;
     color: ${theme.color.red};
     ${theme.font.title_b_16};
   }
 
-  div:nth-of-type(2) {
+  span:nth-of-type(2) {
     ${theme.font.title_b_20};
   }
 
-  div:nth-of-type(3) {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    width: 1.3rem;
-    height: 1.8rem;
+  span:nth-of-type(3) {
     ${theme.font.body_r_14};
   }
 `;
