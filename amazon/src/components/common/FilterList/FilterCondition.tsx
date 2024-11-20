@@ -6,7 +6,6 @@ import FilterCategory from './FilterCategory';
 const conditionStyle = css`
   display: flex;
   flex-direction: column;
-  gap: 24px; /* 섹션 간 간격을 gap으로 통일 */
   align-items: flex-start;
   width: 236px;
   

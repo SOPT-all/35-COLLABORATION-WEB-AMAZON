@@ -27,8 +27,7 @@ const sectionStyle = css`
   flex-direction: column;
   align-items: flex-start;
   const sectionStyle = css;
-  margin-top: 48px;
-  margin-bottom: 24px; /* 섹션 간 간격 */
+
 
   &:first-child {
     margin-top: 0; /* 마지막 섹션은 간격 제거 */

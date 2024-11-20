@@ -1,5 +1,6 @@
 import { css, useTheme } from '@emotion/react';
 import { ThemeType } from '../../../styles/theme';
+import { IcVector } from '@svg';
 
 interface FilterPriceProps {
   priceRange: { min: string; max: string }; // 최소값과 최대값을 담는 객체
@@ -11,7 +12,6 @@ const inputStyle = (theme: ThemeType) => css`
   -webkit-appearance: none; /* Chrome, Safari에서 숫자 스피너 제거 */
   appearance: none; /* 다른 브라우저의 기본 스타일 제거 */
 
-  
   width: 75px;
   height: 32px;
   border: 1px solid ${theme.color.gray3};
@@ -26,11 +26,11 @@ const inputStyle = (theme: ThemeType) => css`
     height: 24px;
   }
 
-   &::placeholder {
-      ${theme.font.title_r_16}
-      color: ${theme.color.gray3}; 
-      opacity: 1; 
-    }
+  &::placeholder {
+    ${theme.font.title_r_16}
+    color: ${theme.color.gray3};
+    opacity: 1;
+  }
 
   &::-webkit-inner-spin-button,
   &::-webkit-outer-spin-button {
@@ -48,16 +48,21 @@ const filterPriceStyle = (theme: ThemeType) => css`
     ${theme.font.title_b_16}
   }
 
- 
-
   .input-container {
     ${theme.font.title_m_16}
     display: flex;
     align-items: center;
     gap: 8px;
     align-self: stretch;
-    
   }
+
+  .price-vector-icon {
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
+
+
+
 `;
 
 const FilterPrice: React.FC<FilterPriceProps> = ({ priceRange, onPriceChange }) => {
@@ -90,11 +95,12 @@ const FilterPrice: React.FC<FilterPriceProps> = ({ priceRange, onPriceChange }) 
           name="max"
           value={priceRange.max}
           onChange={handleInputChange}
-          placeholder = "99990"
+          placeholder="99990"
           css={inputStyle(theme)}
         />
         <span>원</span>
       </div>
+      <IcVector className="price-vector-icon" />
     </div>
   );
 };

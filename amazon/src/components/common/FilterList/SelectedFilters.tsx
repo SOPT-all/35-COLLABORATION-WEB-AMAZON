@@ -27,13 +27,12 @@ const filterTagStyle = (theme: ThemeType) => css`
   width: fit-content;
 
   span {
-    ${theme.font.body_r_14};
+    ${theme.font.title_m_16};
     color: ${theme.color.black};
     text-align: center;
   }
 
   svg {
-
   pointer-events: auto; 
 }
 
