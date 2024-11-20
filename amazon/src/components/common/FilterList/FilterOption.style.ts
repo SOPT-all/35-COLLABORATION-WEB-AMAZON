@@ -17,5 +17,4 @@ export const iconStyle = css`
 
 export const labelStyle = css`
   margin-bottom: 8px;
-  cursor: pointer;
 `;

@@ -1,6 +1,7 @@
 import { IcCheckBoxUnfilled, IcCheckBoxFilled } from '@svg';
 import { containerStyle, iconStyle, labelStyle } from './FilterOption.style';
 
+
 interface FilterOptionProps {
   name: string;
   onChange: (filter: string) => void;
@@ -13,11 +14,13 @@ const FilterOption: React.FC<FilterOptionProps> = ({ name, onChange, isChecked }
       <div css={iconStyle} onClick={() => onChange(name)}>
         {isChecked ? <IcCheckBoxFilled /> : <IcCheckBoxUnfilled />}
       </div>
-      <label css={labelStyle} onClick={() => onChange(name)}>
+      <label css={labelStyle}>
         {name}
       </label>
     </div>
+
   );
 };
+
 
 export default FilterOption;
