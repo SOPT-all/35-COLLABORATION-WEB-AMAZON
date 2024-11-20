@@ -1,15 +1,17 @@
-import { css, useTheme } from "@emotion/react";
-import { ThemeType } from "../../../styles/theme";
+import { css, useTheme } from '@emotion/react';
+import { ThemeType } from '../../../styles/theme';
+import { IcRemove } from '@svg';
+
 
 interface SelectedFiltersProps {
-  selected: string[];
-  onRemove: (filter: string) => void;
+  selected: string[]; // 선택된 필터 배열
+  onRemove: (filter: string) => void; // 필터 삭제 핸들러
 }
 
 const selectedFiltersStyle = css`
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 8px;
   margin-bottom: 1rem;
 `;
 
@@ -25,15 +27,16 @@ const filterTagStyle = (theme: ThemeType) => css`
   width: fit-content;
 
   span {
-    ${theme.font.title_m_16};
+    ${theme.font.body_r_14};
     color: ${theme.color.black};
-    margin-right: 4px;
+    text-align: center;
   }
 
   svg {
-    margin-left: 4px;
-    cursor: pointer;
-  }
+
+  pointer-events: auto; 
+}
+
 `;
 
 const SelectedFilters: React.FC<SelectedFiltersProps> = ({ selected, onRemove }) => {
@@ -44,26 +47,12 @@ const SelectedFilters: React.FC<SelectedFiltersProps> = ({ selected, onRemove })
       {selected.map((filter) => (
         <div key={filter} css={filterTagStyle(theme)}>
           <span>{filter}</span>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="10"
-            height="10"
-            viewBox="0 0 10 10"
-            fill="none"
-            onClick={() => onRemove(filter)}
-          >
-            <path
-              d="M9 1L1 9M1 1L9 9"
-              stroke="#565959"
-              strokeWidth="1.2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
+          {/* onClick 이벤트 추가 */}
+          <IcRemove onClick={() => onRemove(filter)} />
         </div>
       ))}
     </div>
   );
 };
 
-export default SelectedFilters
+export default SelectedFilters;

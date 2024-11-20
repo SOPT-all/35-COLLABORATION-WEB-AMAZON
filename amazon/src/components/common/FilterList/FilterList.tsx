@@ -9,11 +9,6 @@ interface FilterListProps {
 }
 
 const filterListStyle = (theme: ThemeType) => css`
-  display: flex;
-  width: 236px;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 24px;
   ${theme.font.title_m_16}; /* 텍스트 스타일 */
   color: ${theme.color.black}; /* 텍스트 색상 */
 `;

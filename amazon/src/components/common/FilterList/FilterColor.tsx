@@ -1,5 +1,6 @@
 import FilterCategory from "./FilterCategory";
 
+
 const FilterColor = ({ selectedFilters, onChange }: any) => {
   const colorData = [
     { id: 1, name: "블랙" },

@@ -11,23 +11,26 @@ const inputStyle = (theme: ThemeType) => css`
   -webkit-appearance: none; /* Chrome, Safari에서 숫자 스피너 제거 */
   appearance: none; /* 다른 브라우저의 기본 스타일 제거 */
 
-  ${theme.font.title_r_16};
+  
   width: 75px;
   height: 32px;
   border: 1px solid ${theme.color.gray3};
   border-radius: 4px;
   background: ${theme.color.white1};
-
-  color: ${theme.color.gray3};
   display: flex;
   padding: 4px 16px 4px 8px;
   align-items: center;
-  gap: 10px;
 
   input {
     width: 51px;
     height: 24px;
   }
+
+   &::placeholder {
+      ${theme.font.title_r_16}
+      color: ${theme.color.gray3}; 
+      opacity: 1; 
+    }
 
   &::-webkit-inner-spin-button,
   &::-webkit-outer-spin-button {
@@ -36,21 +39,24 @@ const inputStyle = (theme: ThemeType) => css`
   }
 `;
 
-const containerStyle = (theme: ThemeType) => css`
+const filterPriceStyle = (theme: ThemeType) => css`
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
 
-  h2 {
+  h3 {
     ${theme.font.title_b_16}
   }
+
+ 
+
   .input-container {
     ${theme.font.title_m_16}
-
     display: flex;
     align-items: center;
     gap: 8px;
     align-self: stretch;
+    
   }
 `;
 
@@ -67,8 +73,8 @@ const FilterPrice: React.FC<FilterPriceProps> = ({ priceRange, onPriceChange }) 
   };
 
   return (
-    <div css={containerStyle(theme)}>
-      <h2>가격</h2>
+    <div css={filterPriceStyle(theme)}>
+      <h3>가격</h3>
       <div className="input-container">
         <input
           type="number"
@@ -84,7 +90,7 @@ const FilterPrice: React.FC<FilterPriceProps> = ({ priceRange, onPriceChange }) 
           name="max"
           value={priceRange.max}
           onChange={handleInputChange}
-          placeholder="99990"
+          placeholder = "99990"
           css={inputStyle(theme)}
         />
         <span>원</span>

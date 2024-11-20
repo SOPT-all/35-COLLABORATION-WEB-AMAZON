@@ -1,4 +1,6 @@
+import MainCarousel from '@components';
 
+import { sectionStyle } from './Dev.style';
 
 import FilterContainer from "../../components/common/FilterList/FIlterContainer";
 import { css } from "@emotion/react";
@@ -16,13 +18,17 @@ const devPageStyle = css`
   }
 `;
 
-const Dev: React.FC = () => {
-  return (
-    <div css={devPageStyle}>
-      <h1>Dev Page</h1>
-      <FilterContainer />
-    </div>
-  );
-};
 
-export default Dev
+const Dev = () => {
+  return (
+  <div css={devPageStyle}>
+  <div css={sectionStyle}>
+    {/* <MainCarousel /> */}
+    <FilterContainer />
+  </div>
+  </div>
+
+);
+};
+  
+  export default Dev

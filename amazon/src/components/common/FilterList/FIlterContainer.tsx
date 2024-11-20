@@ -6,26 +6,36 @@ import SelectedFilters from './SelectedFilters';
 import PriceFilter from './FilterPrice';
 
 const containerStyle = (theme: ThemeType) => css`
-  display: flex;
   flex-direction: column;
   padding: 24px 28px;
   border-radius: 8px;
-  gap: 20px;
   border: 1px solid ${theme.color.gray3};
   background-color: ${theme.color.white1};
-  width: 296px;
+  width: 292px;
   height: auto;
+  margin-bottom: 8px;
 `;
 
 const titleStyle = (theme: ThemeType) => css`
   ${theme.font.title_b_16};
-  margin-bottom: 10px;
 `;
 
 const sectionStyle = css`
+  gap: 8px;
   display: flex;
+  width: 236px;
   flex-direction: column;
-  gap: 10px;
+  align-items: flex-start;
+  const sectionStyle = css;
+  margin-top: 48px;
+  margin-bottom: 24px; /* 섹션 간 간격 */
+
+  &:first-child {
+    margin-top: 0; /* 마지막 섹션은 간격 제거 */
+  }
+  &:last-child {
+    margin-bottom: 0; /* 마지막 섹션은 간격 제거 */
+  }
 `;
 
 const FilterContainer: React.FC = () => {
@@ -34,24 +44,24 @@ const FilterContainer: React.FC = () => {
   const [priceRange, setPriceRange] = useState<{ min: string; max: string }>({ min: '', max: '' });
 
   const handleFilterChange = (filter: string) => {
-    setSelectedFilters((prev) =>
-      prev.includes(filter) ? prev.filter((item) => item !== filter) : [...prev, filter]
-    );
+    setSelectedFilters((prev) => (prev.includes(filter) ? prev.filter((item) => item !== filter) : [...prev, filter]));
   };
 
   const handleFilterRemove = (filter: string) => {
     setSelectedFilters((prev) => prev.filter((item) => item !== filter));
   };
+  
 
   const handlePriceChange = (min: string, max: string) => {
     setPriceRange({ min, max });
 
     // 가격 필터를 선택된 필터에 추가
     const priceFilter = `${min} ~ ${max}`;
-    setSelectedFilters((prev) =>
-      prev.some((item) => item.includes('~')) // 기존 가격 필터가 있다면 교체
-        ? prev.map((item) => (item.includes('~') ? priceFilter : item))
-        : [...prev, priceFilter] // 없으면 새로 추가
+    setSelectedFilters(
+      (prev) =>
+        prev.some((item) => item.includes('~')) // 기존 가격 필터가 있다면 교체
+          ? prev.map((item) => (item.includes('~') ? priceFilter : item))
+          : [...prev, priceFilter] // 없으면 새로 추가
     );
   };
 
@@ -65,7 +75,7 @@ const FilterContainer: React.FC = () => {
       id: 2,
       name: '카테고리',
       optionList: [
-        { id: 2, name: '가정 및 주방' },
+        { id: 2, name: '가전 및 주방' },
         { id: 3, name: '건강 및 가정용품' },
         { id: 4, name: '스포츠 및 야외활동' },
         { id: 5, name: '영화 및 TV' },
@@ -79,6 +89,9 @@ const FilterContainer: React.FC = () => {
         { id: 7, name: 'KitchenAid' },
         { id: 8, name: 'Vtopmart' },
         { id: 9, name: 'T-Fal' },
+        { id: 9, name: 'BestOffice' },
+        { id: 9, name: 'GoodCook' },
+        { id: 9, name: 'Glad' },
       ],
     },
     {
@@ -105,7 +118,9 @@ const FilterContainer: React.FC = () => {
   const amazonFilter = filterData.filter((filter) => filter.name === '아마존 서비스');
   const categoryFilter = filterData.filter((filter) => filter.name === '카테고리');
   const brandFilter = filterData.filter((filter) => filter.name === '브랜드');
-  const otherFilters = filterData.filter((filter) => filter.name !== '아마존 서비스' && filter.name !== '카테고리' && filter.name !== '브랜드');
+  const conditionFilters = filterData.filter((filter) => filter.name === '상태');
+  const colorFilters = filterData.filter((filter) => filter.name === '색상');
+
 
   return (
     <div css={containerStyle(theme)}>
@@ -136,10 +151,14 @@ const FilterContainer: React.FC = () => {
       </div>
 
       <div css={sectionStyle}>
-        <FilterList data={otherFilters} onChange={handleFilterChange} selectedFilters={selectedFilters} />
+        <FilterList data={conditionFilters} onChange={handleFilterChange} selectedFilters={selectedFilters} />
+      </div>
+
+      <div css={sectionStyle}>
+        <FilterList data={colorFilters} onChange={handleFilterChange} selectedFilters={selectedFilters} />
       </div>
     </div>
   );
 };
 
-export default FilterContainer
+export default FilterContainer;
