@@ -1,4 +1,4 @@
-import { MainCarousel, Breadcrumb, ProductList, BottomRecommend, BottomLoginRecommend } from '@components';
+import { MainCarousel, Breadcrumb, SearchBar, ProductList, BottomRecommend, BottomLoginRecommend } from '@components';
 
 import { sectionStyle } from './Dev.style';
 
@@ -19,6 +19,9 @@ const Dev = () => {
       </div>
       <div css={sectionStyle}>
         <BottomLoginRecommend />
+      </div>
+      <div css={sectionStyle}>
+        <SearchBar />
       </div>
     </>
   );
