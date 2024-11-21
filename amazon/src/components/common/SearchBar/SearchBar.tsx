@@ -1,6 +1,6 @@
 import { IcHeaderSearch, IcSearchbar, IcClose } from '@svg';
+import { mockRecentSearches } from '@utils';
 import { useState, useRef } from 'react';
-import { mockRecentSearches } from 'src/utils/mocks/recentSearches';
 
 import {
   searchBarContainer,
@@ -20,14 +20,20 @@ import {
   headerButtonStyle,
 } from './SearchBar.style';
 
+interface RecentSearch {
+  id: string;
+  keyword: string;
+  searchDate: string;
+}
+
 const SearchBar = () => {
   const [query, setQuery] = useState('');
-  const [recentSearches, setRecentSearches] = useState(mockRecentSearches);
+  const [recentSearches, setRecentSearches] = useState<RecentSearch[]>(mockRecentSearches);
   const [isSearchBarActive, setIsSearchBarActive] = useState(false);
   const searchBarRef = useRef<HTMLDivElement>(null);
 
-  const handleDelete = (keyword: string) => {
-    setRecentSearches((prev) => prev.filter((item) => item.keyword !== keyword));
+  const handleDelete = (id: string) => {
+    setRecentSearches((prev) => prev.filter((item) => item.id !== id));
   };
 
   const handleDeleteAll = () => {
@@ -77,12 +83,12 @@ const SearchBar = () => {
 
           {recentSearches.length > 0 ? (
             <ul css={recentListStyle}>
-              {recentSearches.map(({ keyword, searchDate }) => (
-                <li key={keyword} css={recentItemStyle}>
+              {recentSearches.map(({ id, keyword, searchDate }) => (
+                <li key={id} css={recentItemStyle}>
                   <IcSearchbar css={searchIconStyle} />
                   <span css={keywordStyle}>{keyword}</span>
                   <span css={dateStyle}>{searchDate}</span>
-                  <IcClose css={deleteIconStyle} onClick={() => handleDelete(keyword)} />
+                  <IcClose css={deleteIconStyle} onClick={() => handleDelete(id)} />
                 </li>
               ))}
             </ul>
