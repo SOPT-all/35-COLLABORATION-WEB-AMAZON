@@ -6,6 +6,7 @@ export { default as IcCart } from './IcCart';
 export { default as IcChevronRight } from './IcChevronRight';
 export { default as IcClose } from './IcClose';
 export { default as IcFreedelivery } from './IcFreedelivery';
+export { default as IcHambuger } from './IcHambuger';
 export { default as IcHeaderCart } from './IcHeaderCart';
 export { default as IcHeaderCount } from './IcHeaderCount';
 export { default as IcHeaderLanguage } from './IcHeaderLanguage';
