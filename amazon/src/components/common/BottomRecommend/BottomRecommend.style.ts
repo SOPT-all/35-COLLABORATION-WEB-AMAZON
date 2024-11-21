@@ -6,7 +6,6 @@ export const bottomRecommendContainer = css`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  align-self: stretch;
   gap: 2rem;
 
   h1 {
@@ -17,8 +16,6 @@ export const bottomRecommendContainer = css`
 export const bottomRecommendBox = css`
   display: flex;
   width: 101.2rem;
-  align-items: flex-start;
-  align-content: flex-start;
   gap: 0 0.8rem;
   flex-wrap: wrap;
 `;
@@ -39,6 +36,7 @@ export const bottomSearchedBox = css`
   }
 
   span {
+    color: ${theme.color.black};
     ${theme.font.body_r_14};
   }
 `;
