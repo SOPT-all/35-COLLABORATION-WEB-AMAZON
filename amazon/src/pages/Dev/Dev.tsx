@@ -1,4 +1,4 @@
-import { MainCarousel, Breadcrumb, ProductList, SearchBar, MainCard } from '@components';
+import { MainCarousel, Breadcrumb, ProductList, SearchBar, MainCard, BottomRecommend, BottomLoginRecommend } from '@components';
 
 import { sectionStyle } from './Dev.style';
 import mainCardImage2 from '../../assets/images/img_main_card10.svg';
@@ -32,6 +32,12 @@ const Dev = () => {
       </div>
       <div css={sectionStyle}>
         <ProductList />
+      </div>
+      <div css={sectionStyle}>
+        <BottomRecommend />
+      </div>
+      <div css={sectionStyle}>
+        <BottomLoginRecommend />
       </div>
       <div css={sectionStyle}>
         <SearchBar />
