@@ -1,4 +1,4 @@
-import { IcCart, IcChevronRight, IcStar, IcVector120, IcFreedelivery, IcBestseller } from '@svg';
+import { IcCart, IcChevronRight, IcStar, IcVector120, IcFreedelivery } from '@svg';
 import formatDeliveryDate from '@utils';
 
 import {
@@ -55,7 +55,7 @@ const ProductCard = ({ product }: ProductDataProps) => {
   return (
     <div css={cardContainer}>
       <div css={imageBox}>
-        {isBestSeller && <IcBestseller css={bestSellerIcon} />}
+        {isBestSeller && <div css={bestSellerIcon}>최다 판매</div>}
         <img src={image} alt="productImg" />
       </div>
       <div css={productBox}>
