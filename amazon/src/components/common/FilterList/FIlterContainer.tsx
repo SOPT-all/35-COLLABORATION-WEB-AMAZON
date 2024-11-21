@@ -5,7 +5,7 @@ import FilterList from './FilterList';
 import SelectedFilters from './SelectedFilters';
 import PriceFilter from './FilterPrice';
 import { containerStyle, sectionStyle, titleStyle } from './FilterContainer.style';
-import { IcColorchipBlack, IcColorchipRed, IcColorchipSilver, IcColorchipWhite, IcColorchipGray } from '@svg';
+import { IcColorchipBlack, IcColorchipRed, IcColorchipSilver, IcColorchipWhite, IcColorchipGray, IcColorchipBlue, IcColorchipBrown, IcColorchipGold, IcColorchipGreen, IcColorchipKhaki, IcColorchipLightGreen, IcColorchipNavy, IcColorchipOrange, IcColorchipPink, IcColorchipPurple, IcColorchipSkyBlue, IcColorchipViolet, IcColorchipYellow } from '@svg';
 
 const FilterContainer: React.FC = () => {
   const theme = useTheme() as ThemeType;
@@ -14,16 +14,10 @@ const FilterContainer: React.FC = () => {
 
   const handleFilterChange = (filter: string, category?: string) => {
     const formattedFilter =
-      category === '브랜드'
-        ? `브랜드: ${filter}`
-        : category === '색상'
-        ? `색상: ${filter}`
-        : filter;
+      category === '브랜드' ? `브랜드: ${filter}` : category === '색상' ? `색상: ${filter}` : filter;
 
     setSelectedFilters((prev) =>
-      prev.includes(formattedFilter)
-        ? prev.filter((item) => item !== formattedFilter)
-        : [...prev, formattedFilter]
+      prev.includes(formattedFilter) ? prev.filter((item) => item !== formattedFilter) : [...prev, formattedFilter]
     );
   };
 
@@ -73,6 +67,14 @@ const FilterContainer: React.FC = () => {
         { id: 10, name: 'BestOffice' },
         { id: 11, name: 'GoodCook' },
         { id: 12, name: 'Glad' },
+        { id: 13, name: 'Ninja' },
+        { id: 14, name: 'CAROTE' },
+        { id: 15, name: 'Umite Chef' },
+        { id: 16, name: 'Kitchen Mama' },
+        { id: 17, name: 'JoyJolt' },
+        { id: 18, name: 'Zulay Kitchen' },
+        { id: 19, name: 'Scotch-Brite' },
+        { id: 20, name: 'BLACK+DECKER' },
       ],
     },
     {
@@ -92,6 +94,19 @@ const FilterContainer: React.FC = () => {
         { id: 17, name: '실버', colorChip: <IcColorchipSilver /> },
         { id: 18, name: '화이트', colorChip: <IcColorchipWhite /> },
         { id: 19, name: '레드', colorChip: <IcColorchipRed /> },
+        { id: 20, name: '브라운', colorChip: <IcColorchipBrown /> },
+        { id: 21, name: '오렌지', colorChip: <IcColorchipOrange /> },
+        { id: 22, name: '골드', colorChip: <IcColorchipGold /> },
+        { id: 23, name: '옐로우', colorChip: <IcColorchipYellow /> },
+        { id: 24, name: '카키', colorChip: <IcColorchipKhaki /> },
+        { id: 25, name: '라이트그린', colorChip: <IcColorchipLightGreen /> },
+        { id: 26, name: '그린', colorChip: <IcColorchipGreen /> },
+        { id: 27, name: '스카이블루', colorChip: <IcColorchipSkyBlue /> },
+        { id: 28, name: '블루', colorChip: <IcColorchipBlue /> },
+        { id: 29, name: '네이비', colorChip: <IcColorchipNavy /> },
+        { id: 30, name: '핑크', colorChip: <IcColorchipPink /> },
+        { id: 31, name: '바이올렛', colorChip: <IcColorchipViolet /> },
+        { id: 32, name: '퍼플', colorChip: <IcColorchipPurple /> },
       ],
     },
   ];

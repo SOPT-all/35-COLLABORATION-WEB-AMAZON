@@ -25,6 +25,7 @@ export const categoryStyle = (theme: ThemeType) => css`
       width: 188px;
       flex-grow: 1;
       text-align: left;
+      margin-bottom:;
     }
   }
 
@@ -60,5 +61,9 @@ export const categoryStyle = (theme: ThemeType) => css`
 
   .hide-vector {
     display: none;
+  }
+
+  .category-item {
+    margin-bottom: 8px;
   }
 `;
