@@ -1,4 +1,4 @@
-import products from '@constants';
+import { products } from '@constants';
 
 import { listContainer, productCardList } from './ProductList.style';
 import ProductCard from '../ProductCard/ProductCard';

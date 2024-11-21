@@ -1,9 +1,18 @@
+import {
+  ProductCardImage1,
+  ProductCardImage2,
+  ProductCardImage3,
+  ProductCardImage4,
+  ProductCardImage5,
+  ProductCardImage6,
+} from 'src/constants/images';
+
 const products = {
   status: 'success',
   data: [
     {
       id: 1,
-      image: 'https://github.com/user-attachments/assets/43335cd5-f154-4119-a466-b8a7c0dbc6ab',
+      image: ProductCardImage1,
       brand: 'Fullstar',
       name: '실버웨어 서랍 오거나이저, 주방용 확장 가능한 식기 트레이',
       isBestSeller: true,
@@ -18,7 +27,7 @@ const products = {
     },
     {
       id: 2,
-      image: 'https://github.com/user-attachments/assets/43335cd5-f154-4119-a466-b8a7c0dbc6ab',
+      image: ProductCardImage2,
       brand: 'TrendPlain',
       name: '주방용 473.2ml(16온스) 올리브 오일 디스펜서 병 - 요리, 에어프라이어',
       isBestSeller: false,
@@ -33,7 +42,7 @@ const products = {
     },
     {
       id: 3,
-      image: 'https://github.com/user-attachments/assets/43335cd5-f154-4119-a466-b8a7c0dbc6ab',
+      image: ProductCardImage3,
       brand: 'Maifan',
       name: '주방 싱크대용 싱크 캐디 스폰지 홀더, 브러시 홀더 및 스테인리스 스틸',
       isBestSeller: true,
@@ -48,7 +57,7 @@ const products = {
     },
     {
       id: 4,
-      image: 'https://github.com/user-attachments/assets/43335cd5-f154-4119-a466-b8a7c0dbc6ab',
+      image: ProductCardImage4,
       brand: 'Ninja',
       name: '주방용 473.2ml(16온스) 올리브 오일 디스펜서 병 - 요리, 에어프라이어',
       isBestSeller: false,
@@ -63,7 +72,7 @@ const products = {
     },
     {
       id: 5,
-      image: 'https://github.com/user-attachments/assets/43335cd5-f154-4119-a466-b8a7c0dbc6ab',
+      image: ProductCardImage5,
       brand: 'Ninja',
       name: '에어 프라이어, 로스트, 베이킹, 브로일, 재가열 및 탈수, 튀김, 냉동 식품',
       isBestSeller: false,
@@ -78,7 +87,7 @@ const products = {
     },
     {
       id: 6,
-      image: 'https://github.com/user-attachments/assets/43335cd5-f154-4119-a466-b8a7c0dbc6ab',
+      image: ProductCardImage6,
       brand: 'CAROTE',
       name: '냄비 및 팬 21개 세트, 논스틱 조리기구 세트, 화이트 화강암 인덕션 조리기구',
       isBestSeller: false,
