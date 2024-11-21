@@ -1,6 +1,7 @@
-import { IcHeaderSearch, IcSearchbar, IcClose } from '@svg';
-import { mockRecentSearches } from '@utils';
 import { useState, useRef } from 'react';
+
+import { mockRecentSearches } from '@constants';
+import { IcHeaderSearch, IcSearchbar, IcClose } from '@svg';
 
 import {
   searchBarContainer,
