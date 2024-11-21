@@ -2,9 +2,8 @@ import MainCarousel from '@components';
 
 import { sectionStyle } from './Dev.style';
 
-import FilterContainer from "../../components/common/FilterList/FIlterContainer";
-import { css } from "@emotion/react";
-import TestIcon from 'src/components/common/FilterList/checkobox';
+import FilterContainer from '../../components/common/FilterList/FIlterContainer';
+import { css } from '@emotion/react';
 
 const devPageStyle = css`
   display: flex;
@@ -19,23 +18,16 @@ const devPageStyle = css`
   }
 `;
 
-
 const Dev = () => {
   return (
-  <>
-  <div css={sectionStyle}>
-    {/* <MainCarousel /> */}
-  </div>
-  <div css={sectionStyle}>
-  <FilterContainer />
-  </div>
-  </>
-
-
-
-
-
-);
+    <>
+      {/* <div css={sectionStyle}>
+        <MainCarousel /></div> */}
+      <div css={sectionStyle}>
+        <FilterContainer />
+      </div>
+    </>
+  );
 };
-  
-  export default Dev;
+
+export default Dev;

@@ -1,24 +1,14 @@
-import FilterCategory from "./FilterCategory";
-import { css, useTheme } from "@emotion/react";
-import { ThemeType } from "../../../styles/theme";
+import FilterCategory from './FilterCategory';
 
 interface FilterListProps {
-  data: { id: number; name: string; optionList: { id: number; name: string }[] }[];
+  data: { id: number; name: string; optionList: { id: number; name: string; colorChip?: React.ReactNode }[] }[];
   selectedFilters: string[];
   onChange: (filter: string) => void;
 }
 
-const filterListStyle = (theme: ThemeType) => css`
-  ${theme.font.title_m_16}; /* 텍스트 스타일 */
-  color: ${theme.color.black}; /* 텍스트 색상 */
-`;
-
-
 const FilterList: React.FC<FilterListProps> = ({ data, selectedFilters, onChange }) => {
-  const theme = useTheme() as ThemeType; // useTheme를 통해 theme 가져오기
-
   return (
-    <div css={filterListStyle(theme)}>
+    <div>
       {data.map((category) => (
         <FilterCategory
           key={category.id}
@@ -32,4 +22,4 @@ const FilterList: React.FC<FilterListProps> = ({ data, selectedFilters, onChange
   );
 };
 
-export default FilterList
+export default FilterList;

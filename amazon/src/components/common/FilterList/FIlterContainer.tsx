@@ -5,6 +5,7 @@ import FilterList from './FilterList';
 import SelectedFilters from './SelectedFilters';
 import PriceFilter from './FilterPrice';
 import { containerStyle, sectionStyle, titleStyle } from './FilterContainer.style';
+import { IcColorchipBlack, IcColorchipRed, IcColorchipSilver, IcColorchipWhite, IcColorchipGray } from '@svg';
 
 const FilterContainer: React.FC = () => {
   const theme = useTheme() as ThemeType;
@@ -19,18 +20,22 @@ const FilterContainer: React.FC = () => {
     setSelectedFilters((prev) => prev.filter((item) => item !== filter));
   };
 
-  const handlePriceChange = (min: string, max: string) => {
-    setPriceRange({ min, max });
+const handlePriceChange = (min: string, max: string) => {
+  setPriceRange({ min, max });
 
-    // 가격 필터를 선택된 필터에 추가
+  // 입력값이 모두 유효할 때만 필터 추가
+  if (min.trim() !== '' && max.trim() !== '') {
     const priceFilter = `${min} ~ ${max}`;
-    setSelectedFilters(
-      (prev) =>
-        prev.some((item) => item.includes('~')) // 기존 가격 필터가 있다면 교체
-          ? prev.map((item) => (item.includes('~') ? priceFilter : item))
-          : [...prev, priceFilter] // 없으면 새로 추가
+    setSelectedFilters((prev) =>
+      prev.some((item) => item.includes('~'))
+        ? prev.map((item) => (item.includes('~') ? priceFilter : item)) // 기존 가격 필터 교체
+        : [...prev, priceFilter] 
     );
-  };
+  } else {
+    // 하나라도 비어 있으면 필터에서 제거
+    setSelectedFilters((prev) => prev.filter((item) => !item.includes('~')));
+  }
+};
 
   const filterData = [
     {
@@ -69,15 +74,16 @@ const FilterContainer: React.FC = () => {
         { id: 14, name: '중고품' },
       ],
     },
+
     {
       id: 5,
       name: '색상',
       optionList: [
-        { id: 15, name: '블랙' },
-        { id: 16, name: '그레이' },
-        { id: 17, name: '실버' },
-        { id: 18, name: '화이트' },
-        { id: 19, name: '레드' },
+        { id: 15, name: '블랙', colorChip: <IcColorchipBlack /> },
+        { id: 16, name: '그레이', colorChip: <IcColorchipGray /> },
+        { id: 17, name: '실버', colorChip: <IcColorchipSilver /> },
+        { id: 18, name: '화이트', colorChip: <IcColorchipWhite /> },
+        { id: 19, name: '레드', colorChip: <IcColorchipRed /> },
       ],
     },
   ];
