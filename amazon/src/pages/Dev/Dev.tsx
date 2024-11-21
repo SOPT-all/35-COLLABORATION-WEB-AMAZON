@@ -7,7 +7,10 @@ import {
   BottomLoginRecommend,
   SortingBar,
   MainCard,
+  HorizontalScroll,
 } from '@components';
+
+import { images } from '@constants';
 
 import { sectionStyle } from './Dev.style';
 import mainCardImage2 from '../../assets/images/img_main_card10.svg';
@@ -25,6 +28,7 @@ const mainCardImages2: { img: string; text: string }[] = [
 ];
 
 const Dev = () => {
+ 
   return (
     <>
       <div css={sectionStyle}>
@@ -49,13 +53,13 @@ const Dev = () => {
         <ProductList />
       </div>
       <div css={sectionStyle}>
+        <HorizontalScroll title={'가전 제품 및 주방의 베스트셀러'} images={images} />
+      </div>
+      <div css={sectionStyle}>
         <BottomRecommend />
       </div>
       <div css={sectionStyle}>
         <BottomLoginRecommend />
-      </div>
-      <div css={sectionStyle}>
-        <SearchBar />
       </div>
     </>
   );

@@ -7,6 +7,8 @@ export { default as IcCart } from './IcCart';
 export { default as IcChevronRight } from './IcChevronRight';
 export { default as IcClose } from './IcClose';
 export { default as IcFreedelivery } from './IcFreedelivery';
+export { default as IcHorizonScrollLeftArrow } from './IcHorizonScrollLeftArrow';
+export { default as IcHorizonScrollRightArrow } from './IcHorizonScrollRightArrow';
 export { default as IcHeaderSearch } from './IcHeaderSearch';
 export { default as IcSearchbar } from './IcSearchbar';
 export { default as IcStar } from './IcStar';
