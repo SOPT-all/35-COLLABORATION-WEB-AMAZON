@@ -1,15 +1,16 @@
+
 import { useTheme } from '@emotion/react';
 import { ThemeType } from '../../../styles/theme';
-import { IcVector } from '@svg';
+import { IcVector129 } from '@svg';
 import { filterPriceStyle, inputStyle } from './FilterPrice.style';
 
 interface FilterPriceProps {
-  priceRange: { min: string; max: string }; // 최소값과 최대값을 담는 객체
-  onPriceChange: (min: string, max: string) => void; // 가격 변경 시 호출되는 콜백
+  priceRange: { min: string; max: string };
+  onPriceChange: (min: string, max: string) => void; 
 }
 
-const FilterPrice: React.FC<FilterPriceProps> = ({ priceRange, onPriceChange }) => {
-  const theme = useTheme() as ThemeType; // useTheme 훅으로 theme 가져오기
+const FilterPrice = ({ priceRange, onPriceChange }: FilterPriceProps) => {
+  const theme = useTheme() as ThemeType; 
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -43,7 +44,7 @@ const FilterPrice: React.FC<FilterPriceProps> = ({ priceRange, onPriceChange }) 
         />
         <span>원</span>
       </div>
-      <IcVector className="price-vector-icon" />
+      <IcVector129 className="price-vector-icon" />
     </div>
   );
 };

@@ -1,24 +1,26 @@
+
 import { useTheme } from '@emotion/react';
 import { ThemeType } from '../../../styles/theme';
 import { IcRemove } from '@svg';
 import { selectedFiltersStyle, filterTagStyle } from './SelectedFilter.style';
 
 interface SelectedFiltersProps {
-  selected: string[]; // 선택된 필터 배열
-  onRemove: (filter: string) => void; // 필터 삭제 핸들러
+  selected: string[]; 
+  onRemove: (filter: string) => void; 
 }
 
-const SelectedFilters: React.FC<SelectedFiltersProps> = ({ selected, onRemove }) => {
+const SelectedFilters = ({ selected, onRemove }: SelectedFiltersProps) => {
   const theme = useTheme() as ThemeType;
 
-  const getFormattedFilter = (filter: string) => {
-    if (filter.startsWith("브랜드: ")) {
-      return filter.replace("브랜드: ", "브랜드: ");
+ 
+  const getFormattedFilter = (filter: string): string => {
+    if (filter.startsWith('브랜드: ')) {
+      return filter.replace('브랜드: ', '브랜드: ');
     }
-    if (filter.startsWith("색상: ")) {
-      return filter.replace("색상: ", "색상: ");
+    if (filter.startsWith('색상: ')) {
+      return filter.replace('색상: ', '색상: ');
     }
-    return filter; 
+    return filter;
   };
 
   return (
@@ -32,6 +34,5 @@ const SelectedFilters: React.FC<SelectedFiltersProps> = ({ selected, onRemove })
     </div>
   );
 };
-
 
 export default SelectedFilters;

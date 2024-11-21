@@ -1,3 +1,4 @@
+
 import { IcCheckBoxUnfilled, IcCheckBoxFilled } from '@svg';
 import { containerStyle, iconStyle, labelStyle, colorChipStyle } from './FilterOption.style';
 
@@ -8,7 +9,7 @@ interface FilterOptionProps {
   colorChip?: React.ReactNode;
 }
 
-const FilterOption: React.FC<FilterOptionProps> = ({ name, onChange, isChecked, colorChip }) => {
+const FilterOption = ({ name, onChange, isChecked, colorChip }: FilterOptionProps) => {
   return (
     <div css={containerStyle}>
       <div css={iconStyle} onClick={() => onChange(name)}>

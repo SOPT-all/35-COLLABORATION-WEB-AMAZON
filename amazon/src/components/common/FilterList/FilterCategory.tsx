@@ -1,9 +1,10 @@
+
 import { useTheme } from '@emotion/react';
 import { useState } from 'react';
 import { ThemeType } from '../../../styles/theme';
 import { categoryStyle } from './FilterCategory.style';
 import FilterOption from './FilterOption';
-import { IcChevronDown, IcChevronUp, IcVector } from '@svg';
+import { IcChevronDown, IcChevronUp, IcVector129 } from '@svg';
 
 interface FilterCategoryProps {
   name: string;
@@ -12,28 +13,30 @@ interface FilterCategoryProps {
   onChange: (filter: string, category?: string) => void;
 }
 
-const FilterCategory: React.FC<FilterCategoryProps> = ({ name, options, selectedFilters, onChange }) => {
+const FilterCategory = ({ name, options, selectedFilters, onChange }: FilterCategoryProps) => {
   const theme = useTheme() as ThemeType;
-  const [isViewAllOpen, setIsViewAllOpen] = useState(false); // 모두보기 상태 관리
+  const [isViewAllOpen, setIsViewAllOpen] = useState(false);
 
-  const handleToggleViewAll = () => setIsViewAllOpen((prev) => !prev); // 모두보기 상태 토글
+  const handleToggleViewAll = () => setIsViewAllOpen((prev) => !prev);
 
+  
   const displayedOptions =
-  name === '브랜드'
-    ? (isViewAllOpen ? options : options.slice(0, 7)) // 브랜드는 기본적으로 7개 표시
-    : name === '색상'
-    ? (isViewAllOpen ? options : options.slice(0, 5)) // 색상은 기본적으로 5개 표시
-    : options; 
-    
+    name === '브랜드'
+      ? isViewAllOpen
+        ? options
+        : options.slice(0, 7)
+      : name === '색상'
+      ? isViewAllOpen
+        ? options
+        : options.slice(0, 5)
+      : options;
+
   return (
     <div css={categoryStyle(theme)}>
       <h3>{name}</h3>
       <ul>
         {displayedOptions.map((option) => (
-          <li
-            key={option.id}
-            className={name === '카테고리' ? 'category-item' : ''} // 특정 클래스 추가
-          >
+          <li key={option.id} className={name === '카테고리' ? 'category-item' : ''}>
             {name === '카테고리' ? (
               <>
                 <label>{option.name}</label>
@@ -57,16 +60,16 @@ const FilterCategory: React.FC<FilterCategoryProps> = ({ name, options, selected
         ))}
       </ul>
 
-      {/* 모두보기 버튼 추가 */}
-      {(name === '카테고리' || name === '브랜드' || name === '색상') && (
+      {/* 카테고리 펼쳐보기 */}
+      {(name === '브랜드' || name === '색상') && (
         <div className="view-all-banner" onClick={handleToggleViewAll}>
           <span>{isViewAllOpen ? `${name} 모두보기 닫기` : `${name} 모두보기`}</span>
           {isViewAllOpen ? <IcChevronUp className="up-icon" /> : <IcChevronDown className="down-icon" />}
         </div>
       )}
 
-      {/* 벡터 아이콘 */}
-      <IcVector className={`category-vector-icon ${name === '색상' ? 'hide-vector' : ''}`} />
+      {/* Vector icon */}
+      <IcVector129 className={`category-vector-icon ${name === '색상' ? 'hide-vector' : ''}`} />
     </div>
   );
 };
