@@ -2,13 +2,15 @@ import { css } from '@emotion/react';
 import theme from '@styles/theme';
 
 export const searchBarContainer = css`
+  position: relative;
   display: flex;
   align-items: center;
   width: 74.3rem;
   height: 4rem;
-  border: 1px solid transparent;
   border-radius: 4px;
   background: ${theme.color.white1};
+  border: 1px solid transparent;
+  background-clip: padding-box;
   overflow: hidden;
 
   &:focus-within {
@@ -52,6 +54,7 @@ export const buttonActiveStyle = css`
 `;
 
 export const recentSearchContainer = css`
+  position: absolute;
   width: 74.3rem;
   padding: 1rem 1.8rem 1.6rem;
   border: 1px solid ${theme.color.orange1};

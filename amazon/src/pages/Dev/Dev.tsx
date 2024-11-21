@@ -1,4 +1,4 @@
-import { MainCarousel, Breadcrumb, ProductList, SearchBar } from '@components';
+import { MainCarousel, Breadcrumb, ProductList, SearchBar, Header } from '@components';
 
 import { sectionStyle } from './Dev.style';
 
@@ -16,6 +16,9 @@ const Dev = () => {
       </div>
       <div css={sectionStyle}>
         <SearchBar />
+      </div>
+      <div css={sectionStyle}>
+        <Header />
       </div>
     </>
   );
