@@ -40,5 +40,5 @@
       "@utils": ["src/utils"]
     }
   },
-  "include": ["src", "custom.d.ts"]
+  "include": ["src", "custom.d.ts", "public/image"]
 }

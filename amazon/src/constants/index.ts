@@ -1,3 +1,4 @@
+import productCardImages from './images';
 import products from './mocks/products';
 
-export default products;
+export { products, productCardImages };
