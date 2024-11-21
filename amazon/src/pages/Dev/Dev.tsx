@@ -6,6 +6,7 @@ import {
   BottomRecommend,
   BottomLoginRecommend,
   SortingBar,
+  MainCard,
 } from '@components';
 
 import { sectionStyle } from './Dev.style';
@@ -38,7 +39,7 @@ const Dev = () => {
       <div css={sectionStyle}>
         <MainCard mainCardImages={mainCardImages2} />
       </div>
-      <div css={sectionStyle}>  
+      <div css={sectionStyle}>
         <Breadcrumb />
       </div>
       <div css={sectionStyle}>
