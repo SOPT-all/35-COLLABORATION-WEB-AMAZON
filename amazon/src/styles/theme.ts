@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 
 const AmazonEmberFont = css`
-  font-family: 'Amazon Ember', sans-serif;
+  font-family: 'Amazon Ember';
 `;
 
 const theme = {

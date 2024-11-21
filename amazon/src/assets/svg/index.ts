@@ -1,7 +1,8 @@
 export { default as IcBannerLeftArrow } from './IcBannerLeftArrow';
 export { default as IcBannerRightArrow } from './IcBannerRightArrow';
-export { default as IcBestseller } from './IcBestseller';
+export { default as IcBottomSearch } from './IcBottomSearch';
 export { default as IcBreadArrow } from './IcBreadArrow';
+export { default as IcBtnPage } from './IcBtnPage';
 export { default as IcCart } from './IcCart';
 export { default as IcChevronRight } from './IcChevronRight';
 export { default as IcClose } from './IcClose';
@@ -11,6 +12,8 @@ export { default as IcHeaderCart } from './IcHeaderCart';
 export { default as IcHeaderCount } from './IcHeaderCount';
 export { default as IcHeaderLanguage } from './IcHeaderLanguage';
 export { default as IcHeaderLocation } from './IcHeaderLocation';
+export { default as IcHorizonScrollLeftArrow } from './IcHorizonScrollLeftArrow';
+export { default as IcHorizonScrollRightArrow } from './IcHorizonScrollRightArrow';
 export { default as IcHeaderSearch } from './IcHeaderSearch';
 export { default as IcSearchbar } from './IcSearchbar';
 export { default as IcStar } from './IcStar';
