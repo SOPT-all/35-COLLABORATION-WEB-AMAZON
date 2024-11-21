@@ -11,6 +11,13 @@ const MainScrollCardImage10 = '/image/mainScrolls/img_main_scroll_card73.png';
 const MainScrollCardImage11 = '/image/mainScrolls/img_main_scroll_card74.png';
 const MainScrollCardImage12 = '/image/mainScrolls/img_main_scroll_card75.png';
 
+const ProductCardImage1 = '/image/productCard/img_card1.png';
+const ProductCardImage2 = '/image/productCard/img_card2.png';
+const ProductCardImage3 = '/image/productCard/img_card3.png';
+const ProductCardImage4 = '/image/productCard/img_card4.png';
+const ProductCardImage5 = '/image/productCard/img_card5.png';
+const ProductCardImage6 = '/image/productCard/img_card6.png';
+
 const images = [
   MainScrollCardImage1,
   MainScrollCardImage2,
@@ -26,4 +33,13 @@ const images = [
   MainScrollCardImage12,
 ];
 
-export default images;
+const productCardImages = [
+  ProductCardImage1,
+  ProductCardImage2,
+  ProductCardImage3,
+  ProductCardImage4,
+  ProductCardImage5,
+  ProductCardImage6,
+];
+
+export { images, productCardImages };
