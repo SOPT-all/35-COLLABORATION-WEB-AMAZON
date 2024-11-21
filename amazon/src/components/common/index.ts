@@ -1,6 +1,7 @@
 import BottomLoginRecommend from './BottomLoginRecommend/BottomLoginRecommend';
 import BottomRecommend from './BottomRecommend/BottomRecommend';
 import Breadcrumb from './Breadcrumb/Breadcrumb';
+import Header from './Header/Header';
 import HorizontalScroll from './HorizontalScroll/HorizontalScroll';
 import MainCard from './MainCard/MainCard';
 import MainCarousel from './MainCarousel/MainCarousel';
@@ -18,4 +19,5 @@ export {
   BottomRecommend,
   SortingBar,
   HorizontalScroll,
+  Header,
 };

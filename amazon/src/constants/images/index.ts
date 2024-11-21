@@ -18,6 +18,8 @@ const ProductCardImage4 = '/image/productCard/img_card4.png';
 const ProductCardImage5 = '/image/productCard/img_card5.png';
 const ProductCardImage6 = '/image/productCard/img_card6.png';
 
+const HeaderLogoImage = '/image/header/img_header_logo.svg';
+
 const images = [
   MainScrollCardImage1,
   MainScrollCardImage2,
@@ -42,4 +44,4 @@ const productCardImages = [
   ProductCardImage6,
 ];
 
-export { images, productCardImages };
+export { images, productCardImages, HeaderLogoImage };

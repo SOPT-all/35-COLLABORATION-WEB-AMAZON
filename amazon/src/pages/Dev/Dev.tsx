@@ -8,6 +8,7 @@ import {
   SortingBar,
   MainCard,
   HorizontalScroll,
+  Header,
 } from '@components';
 import { images } from '@constants';
 
@@ -58,6 +59,9 @@ const Dev = () => {
       </div>
       <div css={sectionStyle}>
         <BottomLoginRecommend />
+      </div>
+      <div css={sectionStyle}>
+        <Header />
       </div>
     </>
   );
