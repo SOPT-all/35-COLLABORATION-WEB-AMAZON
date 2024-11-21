@@ -21,7 +21,6 @@ export const LocationIconStyle = css`
   display: inline-flex;
   height: 5rem;
   margin-right: 1.4rem;
-  flex-shrink: 0;
 `;
 
 export const SearchBarWrapper = css`
@@ -43,7 +42,6 @@ export const CartWrapper = css`
 export const CartIconStyle = css`
   width: 3.6rem;
   height: 3.3rem;
-  flex-shrink: 0;
 `;
 
 export const CartCountWrapper = css`
