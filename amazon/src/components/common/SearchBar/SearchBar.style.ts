@@ -52,9 +52,8 @@ export const buttonActiveStyle = css`
 `;
 
 export const recentSearchContainer = css`
-  position: absolute;
   width: 74.3rem;
-  padding: 1rem 1.8rem 1.6rem 1.8rem;
+  padding: 1rem 1.8rem 1.6rem;
   border: 1px solid ${theme.color.orange1};
   border-radius: 4px;
   background: ${theme.color.white1};
