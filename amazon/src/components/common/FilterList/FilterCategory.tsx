@@ -9,22 +9,14 @@ interface FilterCategoryProps {
   name: string;
   options: { id: number; name: string; colorChip?: React.ReactNode }[];
   selectedFilters: string[];
-  onChange: (filter: string) => void;
+  onChange: (filter: string, category?: string) => void;
 }
 
-const FilterCategory: React.FC<FilterCategoryProps> = ({
-  name,
-  options,
-  selectedFilters,
-  onChange,
-}) => {
+const FilterCategory: React.FC<FilterCategoryProps> = ({ name, options, selectedFilters, onChange }) => {
   const theme = useTheme() as ThemeType;
-
   const [isViewAllOpen, setIsViewAllOpen] = useState(false);
 
-  const handleToggleViewAll = () => {
-    setIsViewAllOpen((prev) => !prev);
-  };
+  const handleToggleViewAll = () => setIsViewAllOpen((prev) => !prev);
 
   return (
     <div css={categoryStyle(theme)}>
@@ -34,15 +26,20 @@ const FilterCategory: React.FC<FilterCategoryProps> = ({
           <li key={option.id}>
             <FilterOption
               name={option.name}
-              isChecked={selectedFilters.includes(option.name)}
-              onChange={onChange}
-              colorChip={option.colorChip} 
+              isChecked={selectedFilters.includes(
+                name === '브랜드'
+                  ? `브랜드: ${option.name}`
+                  : name === '색상'
+                  ? `색상: ${option.name}`
+                  : option.name
+              )}
+              onChange={(filter) => onChange(filter, name)}
+              colorChip={option.colorChip}
             />
           </li>
         ))}
       </ul>
 
-      {/* "모두 보기" 배너 */}
       {(name === '카테고리' || name === '브랜드' || name === '색상') && (
         <div className="view-all-banner" onClick={handleToggleViewAll}>
           <span>{isViewAllOpen ? `${name} 모두보기 닫기` : `${name} 모두보기`}</span>
@@ -50,7 +47,6 @@ const FilterCategory: React.FC<FilterCategoryProps> = ({
         </div>
       )}
 
-      {/* 벡터 아이콘 */}
       <IcVector className={`category-vector-icon ${name === '색상' ? 'hide-vector' : ''}`} />
     </div>
   );

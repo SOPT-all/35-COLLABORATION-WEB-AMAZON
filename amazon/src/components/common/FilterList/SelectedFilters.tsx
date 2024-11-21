@@ -11,17 +11,27 @@ interface SelectedFiltersProps {
 const SelectedFilters: React.FC<SelectedFiltersProps> = ({ selected, onRemove }) => {
   const theme = useTheme() as ThemeType;
 
+  const getFormattedFilter = (filter: string) => {
+    if (filter.startsWith("브랜드: ")) {
+      return filter.replace("브랜드: ", "브랜드: ");
+    }
+    if (filter.startsWith("색상: ")) {
+      return filter.replace("색상: ", "색상: ");
+    }
+    return filter; 
+  };
+
   return (
     <div css={selectedFiltersStyle}>
       {selected.map((filter) => (
         <div key={filter} css={filterTagStyle(theme)}>
-          <span>{filter}</span>
-          {/* onClick 이벤트 추가 */}
+          <span>{getFormattedFilter(filter)}</span>
           <IcRemove onClick={() => onRemove(filter)} />
         </div>
       ))}
     </div>
   );
 };
+
 
 export default SelectedFilters;

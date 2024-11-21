@@ -12,30 +12,39 @@ const FilterContainer: React.FC = () => {
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
   const [priceRange, setPriceRange] = useState<{ min: string; max: string }>({ min: '', max: '' });
 
-  const handleFilterChange = (filter: string) => {
-    setSelectedFilters((prev) => (prev.includes(filter) ? prev.filter((item) => item !== filter) : [...prev, filter]));
+  const handleFilterChange = (filter: string, category?: string) => {
+    const formattedFilter =
+      category === '브랜드'
+        ? `브랜드: ${filter}`
+        : category === '색상'
+        ? `색상: ${filter}`
+        : filter;
+
+    setSelectedFilters((prev) =>
+      prev.includes(formattedFilter)
+        ? prev.filter((item) => item !== formattedFilter)
+        : [...prev, formattedFilter]
+    );
   };
 
   const handleFilterRemove = (filter: string) => {
     setSelectedFilters((prev) => prev.filter((item) => item !== filter));
   };
 
-const handlePriceChange = (min: string, max: string) => {
-  setPriceRange({ min, max });
+  const handlePriceChange = (min: string, max: string) => {
+    setPriceRange({ min, max });
 
-  // 입력값이 모두 유효할 때만 필터 추가
-  if (min.trim() !== '' && max.trim() !== '') {
-    const priceFilter = `${min} ~ ${max}`;
-    setSelectedFilters((prev) =>
-      prev.some((item) => item.includes('~'))
-        ? prev.map((item) => (item.includes('~') ? priceFilter : item)) // 기존 가격 필터 교체
-        : [...prev, priceFilter] 
-    );
-  } else {
-    // 하나라도 비어 있으면 필터에서 제거
-    setSelectedFilters((prev) => prev.filter((item) => !item.includes('~')));
-  }
-};
+    if (min.trim() !== '' && max.trim() !== '') {
+      const priceFilter = `${min} ~ ${max}`;
+      setSelectedFilters((prev) =>
+        prev.some((item) => item.includes('~'))
+          ? prev.map((item) => (item.includes('~') ? priceFilter : item))
+          : [...prev, priceFilter]
+      );
+    } else {
+      setSelectedFilters((prev) => prev.filter((item) => !item.includes('~')));
+    }
+  };
 
   const filterData = [
     {
@@ -61,9 +70,9 @@ const handlePriceChange = (min: string, max: string) => {
         { id: 7, name: 'KitchenAid' },
         { id: 8, name: 'Vtopmart' },
         { id: 9, name: 'T-Fal' },
-        { id: 9, name: 'BestOffice' },
-        { id: 9, name: 'GoodCook' },
-        { id: 9, name: 'Glad' },
+        { id: 10, name: 'BestOffice' },
+        { id: 11, name: 'GoodCook' },
+        { id: 12, name: 'Glad' },
       ],
     },
     {
@@ -74,7 +83,6 @@ const handlePriceChange = (min: string, max: string) => {
         { id: 14, name: '중고품' },
       ],
     },
-
     {
       id: 5,
       name: '색상',
@@ -88,15 +96,8 @@ const handlePriceChange = (min: string, max: string) => {
     },
   ];
 
-  const amazonFilter = filterData.filter((filter) => filter.name === '아마존 서비스');
-  const categoryFilter = filterData.filter((filter) => filter.name === '카테고리');
-  const brandFilter = filterData.filter((filter) => filter.name === '브랜드');
-  const conditionFilters = filterData.filter((filter) => filter.name === '상태');
-  const colorFilters = filterData.filter((filter) => filter.name === '색상');
-
   return (
     <div css={containerStyle(theme)}>
-      {/* 선택된 필터 */}
       {selectedFilters.length > 0 && (
         <div css={sectionStyle}>
           <span css={titleStyle(theme)}>선택한 필터</span>
@@ -104,30 +105,48 @@ const handlePriceChange = (min: string, max: string) => {
         </div>
       )}
 
-      {/* 필터 목록 */}
       <div css={sectionStyle}>
-        <FilterList data={amazonFilter} onChange={handleFilterChange} selectedFilters={selectedFilters} />
+        <FilterList
+          data={filterData.filter((f) => f.name === '아마존 서비스')}
+          onChange={handleFilterChange}
+          selectedFilters={selectedFilters}
+        />
       </div>
 
       <div css={sectionStyle}>
-        <FilterList data={categoryFilter} onChange={handleFilterChange} selectedFilters={selectedFilters} />
+        <FilterList
+          data={filterData.filter((f) => f.name === '카테고리')}
+          onChange={handleFilterChange}
+          selectedFilters={selectedFilters}
+        />
       </div>
 
       <div css={sectionStyle}>
-        <FilterList data={brandFilter} onChange={handleFilterChange} selectedFilters={selectedFilters} />
+        <FilterList
+          data={filterData.filter((f) => f.name === '브랜드')}
+          onChange={(filter) => handleFilterChange(filter, '브랜드')}
+          selectedFilters={selectedFilters}
+        />
       </div>
 
-      {/* 가격 필터 */}
       <div css={sectionStyle}>
         <PriceFilter priceRange={priceRange} onPriceChange={handlePriceChange} />
       </div>
 
       <div css={sectionStyle}>
-        <FilterList data={conditionFilters} onChange={handleFilterChange} selectedFilters={selectedFilters} />
+        <FilterList
+          data={filterData.filter((f) => f.name === '상태')}
+          onChange={handleFilterChange}
+          selectedFilters={selectedFilters}
+        />
       </div>
 
       <div css={sectionStyle}>
-        <FilterList data={colorFilters} onChange={handleFilterChange} selectedFilters={selectedFilters} />
+        <FilterList
+          data={filterData.filter((f) => f.name === '색상')}
+          onChange={(filter) => handleFilterChange(filter, '색상')}
+          selectedFilters={selectedFilters}
+        />
       </div>
     </div>
   );

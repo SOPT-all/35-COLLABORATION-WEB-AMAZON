@@ -12,6 +12,8 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   plugins: ['react-refresh', 'import'],
   rules: {
+    // eslint import no-resolved 옵션 오류
+    "import/no-unresolved": "off",
     'prettier/prettier': 'error',
     'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
     'import/order': [
