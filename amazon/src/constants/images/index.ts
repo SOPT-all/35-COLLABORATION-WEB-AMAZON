@@ -1,0 +1,12 @@
+export const MainScrollCardImage1 = '/image/mainScroll/img_main_scroll-card22.png';
+export const MainScrollCardImage2 = '/image/mainScroll/img_main_scroll-card27.png';
+export const MainScrollCardImage3 = '/image/mainScroll/img_main_scroll-card28.png';
+export const MainScrollCardImage4 = '/image/mainScroll/img_main_scroll-card29.png';
+export const MainScrollCardImage5 = '/image/mainScroll/img_main_scroll-card30.png';
+export const MainScrollCardImage6 = '/image/mainScroll/img_main_scroll-card31.png';
+export const MainScrollCardImage7 = '/image/mainScroll/img_main_scroll-card32.png';
+export const MainScrollCardImage8 = '/image/mainScroll/img_main_scroll-card70.png';
+export const MainScrollCardImage9 = '/image/mainScroll/img_main_scroll-card72.png';
+export const MainScrollCardImage10 = '/image/mainScroll/img_main_scroll-card73.png';
+export const MainScrollCardImage11 = '/image/mainScroll/img_main_scroll-card74.png';
+export const MainScrollCardImage12 = '/image/mainScroll/img_main_scroll-card75.png';
