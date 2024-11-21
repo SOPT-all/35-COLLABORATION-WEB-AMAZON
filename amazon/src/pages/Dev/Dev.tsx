@@ -9,7 +9,6 @@ import {
   MainCard,
   HorizontalScroll,
 } from '@components';
-
 import { images } from '@constants';
 
 import { sectionStyle } from './Dev.style';
@@ -28,7 +27,6 @@ const mainCardImages2: { img: string; text: string }[] = [
 ];
 
 const Dev = () => {
- 
   return (
     <>
       <div css={sectionStyle}>
