@@ -9,6 +9,7 @@ import {
   MainCard,
   HorizontalScroll,
   Header,
+  FilterList,
 } from '@components';
 import { images } from '@constants';
 
@@ -62,6 +63,9 @@ const Dev = () => {
       </div>
       <div css={sectionStyle}>
         <Header />
+      </div>
+      <div css={sectionStyle}>
+        <FilterList />
       </div>
     </>
   );
