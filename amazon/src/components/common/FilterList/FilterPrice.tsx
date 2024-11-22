@@ -1,4 +1,3 @@
-
 import { useTheme } from '@emotion/react';
 import { ThemeType } from '../../../styles/theme';
 import { IcVector129 } from '@svg';
@@ -6,14 +5,15 @@ import { filterPriceStyle, inputStyle } from './FilterPrice.style';
 
 interface FilterPriceProps {
   priceRange: { min: string; max: string };
-  onPriceChange: (min: string, max: string) => void; 
+  onPriceChange: (min: string, max: string) => void;
 }
 
-const FilterPrice = ({ priceRange, onPriceChange }: FilterPriceProps) => {
-  const theme = useTheme() as ThemeType; 
+const FilterPrice = ({ priceRange, onPriceChange }: FilterPriceProps): JSX.Element => {
+  const theme = useTheme() as ThemeType;
+  const styles = filterPriceStyle(theme); 
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    const { name, value } = event.target;
     if (name === 'min') {
       onPriceChange(value, priceRange.max);
     } else if (name === 'max') {
@@ -22,9 +22,9 @@ const FilterPrice = ({ priceRange, onPriceChange }: FilterPriceProps) => {
   };
 
   return (
-    <div css={filterPriceStyle(theme)}>
+    <div css={styles.root}>
       <h3>가격</h3>
-      <div className="input-container">
+      <div css={styles.inputContainer}>
         <input
           type="number"
           name="min"
@@ -44,7 +44,7 @@ const FilterPrice = ({ priceRange, onPriceChange }: FilterPriceProps) => {
         />
         <span>원</span>
       </div>
-      <IcVector129 className="price-vector-icon" />
+      <IcVector129 css={styles.priceVectorIcon} />
     </div>
   );
 };

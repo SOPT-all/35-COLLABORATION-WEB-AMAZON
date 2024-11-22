@@ -1,4 +1,3 @@
-
 import FilterCategory from './FilterCategory';
 
 interface FilterListProps {
@@ -9,17 +8,17 @@ interface FilterListProps {
 
 const FilterContainer = ({ data, selectedFilters, onChange }: FilterListProps) => {
   return (
-    <div>
-      {data.map((category) => (
+    <>
+      {data.map(({ id, name, optionList }) => (
         <FilterCategory
-          key={category.id}
-          name={category.name}
-          options={category.optionList}
+          key={id}
+          name={name}
+          options={optionList}
           selectedFilters={selectedFilters}
           onChange={onChange}
         />
       ))}
-    </div>
+    </>
   );
 };
 

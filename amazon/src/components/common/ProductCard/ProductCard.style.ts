@@ -12,6 +12,7 @@ export const cardContainer = css`
   border: 1px solid ${theme.color.gray3};
   border-radius: 4px;
   background-color: ${theme.color.white1};
+  overflow: hidden;
 `;
 
 export const imageBox = css`
@@ -25,7 +26,7 @@ export const imageBox = css`
   img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
   }
 `;
 
@@ -33,8 +34,14 @@ export const bestSellerIcon = css`
   position: absolute;
   top: 0;
   left: 0;
+  text-align: center;
   width: 6.3rem;
   height: 2.3rem;
+  padding: 0.5rem 0.8rem 0.4rem 0.7rem;
+  color: ${theme.color.white1};
+  border-bottom-right-radius: 4px;
+  ${theme.font.body_r_12};
+  background: ${theme.color.red};
 `;
 
 export const productBox = css`

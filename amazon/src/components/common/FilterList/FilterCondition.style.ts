@@ -1,8 +1,8 @@
 import { css } from '@emotion/react';
 
-export const conditionStyle = css`
+export const conditionContainerStyle = css`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 236px;
+  width: 23.6rem; 
 `;

@@ -5,65 +5,65 @@ export const categoryStyle = (theme: ThemeType) => css`
   h3 {
     ${theme.font.title_b_16};
     color: ${theme.color.black};
-    margin-bottom: 8px;
+    margin-bottom: 0.8rem; 
   }
 
   ul {
     display: flex;
     flex-direction: column;
+    
   }
 
   li {
     display: flex;
     align-items: center;
-    width: 236px;
+    width: 23.6rem;
 
     label {
       ${theme.font.title_m_16};
       color: ${theme.color.black};
       cursor: pointer;
-      width: 188px;
+      width: 18.8rem; 
       flex-grow: 1;
       text-align: left;
-      margin-bottom:;
+      
     }
   }
+`;
 
-  .down-icon,
-  .up-icon {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
+export const iconStyle = css`
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+`;
+
+export const viewAllBannerStyle = (theme: ThemeType) => css`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8rem; /* rem 사용 */
+  margin-top: 0.8rem;
+  background-color: ${theme.color.white1};
+  cursor: pointer;
+
+  span {
+    ${theme.font.title_m_16};
+    color: ${theme.color.gray2};
   }
+`;
 
-  .view-all-banner {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 8px;
-    margin-top: 8px;
-    background-color: ${theme.color.white1};
-    cursor: pointer;
+export const vectorIconStyle = css`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 2.4rem; /* rem 사용 */
+  margin-bottom: 2.4rem;
+`;
 
-    span {
-      ${theme.font.title_m_16};
-      color: ${theme.color.gray2};
-    }
-  }
+export const hideVectorStyle = css`
+  display: none;
+`;
 
-  .category-vector-icon {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin-top: 24px;
-    margin-bottom: 24px;
-  }
-
-  .hide-vector {
-    display: none;
-  }
-
-  .category-item {
-    margin-bottom: 8px;
-  }
+export const categoryItemStyle = css`
+  margin-bottom: 0.8rem; /* rem 사용 */
 `;

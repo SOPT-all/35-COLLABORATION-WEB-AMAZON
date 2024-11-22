@@ -2,14 +2,15 @@ import { css } from '@emotion/react';
 import { ThemeType } from '../../../styles/theme';
 
 export const containerStyle = (theme: ThemeType) => css`
+  display: flex;
   flex-direction: column;
-  padding: 24px 28px;
-  border-radius: 8px;
+  padding: 2.4rem 2.8rem; 
+  border-radius: 0.8rem;
   border: 1px solid ${theme.color.gray3};
   background-color: ${theme.color.white1};
-  width: 292px;
+  width: 29.2rem;
   height: auto;
-  margin-bottom: 8px;
+  
 `;
 
 export const titleStyle = (theme: ThemeType) => css`
@@ -17,16 +18,17 @@ export const titleStyle = (theme: ThemeType) => css`
 `;
 
 export const sectionStyle = css`
-  gap: 8px;
   display: flex;
-  width: 236px;
   flex-direction: column;
   align-items: flex-start;
+  gap: 0.8rem;
+  width: 23.6rem;
 
-  &:first-child {
+  &:first-of-type {
     margin-top: 0; /* 첫 번째 섹션 간격 제거 */
   }
-  &:last-child {
+
+  &:last-of-type {
     margin-bottom: 0; /* 마지막 섹션 간격 제거 */
   }
 `;

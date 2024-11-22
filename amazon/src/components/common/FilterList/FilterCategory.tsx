@@ -1,8 +1,13 @@
-
 import { useTheme } from '@emotion/react';
 import { useState } from 'react';
 import { ThemeType } from '../../../styles/theme';
-import { categoryStyle } from './FilterCategory.style';
+import {
+  categoryStyle,
+  viewAllBannerStyle,
+  vectorIconStyle,
+  categoryItemStyle,
+  iconStyle,
+} from './FilterCategory.style';
 import FilterOption from './FilterOption';
 import { IcChevronDown, IcChevronUp, IcVector129 } from '@svg';
 
@@ -13,34 +18,34 @@ interface FilterCategoryProps {
   onChange: (filter: string, category?: string) => void;
 }
 
+const getDisplayedOptions = (name: string, options: any[], isViewAllOpen: boolean) => {
+  if (name === '브랜드') {
+    return isViewAllOpen ? options : options.slice(0, 7);
+  }
+  if (name === '색상') {
+    return isViewAllOpen ? options : options.slice(0, 5);
+  }
+  return options;
+};
+
 const FilterCategory = ({ name, options, selectedFilters, onChange }: FilterCategoryProps) => {
   const theme = useTheme() as ThemeType;
   const [isViewAllOpen, setIsViewAllOpen] = useState(false);
 
   const handleToggleViewAll = () => setIsViewAllOpen((prev) => !prev);
 
-  
-  const displayedOptions =
-    name === '브랜드'
-      ? isViewAllOpen
-        ? options
-        : options.slice(0, 7)
-      : name === '색상'
-      ? isViewAllOpen
-        ? options
-        : options.slice(0, 5)
-      : options;
+  const displayedOptions = getDisplayedOptions(name, options, isViewAllOpen);
 
   return (
     <div css={categoryStyle(theme)}>
       <h3>{name}</h3>
       <ul>
         {displayedOptions.map((option) => (
-          <li key={option.id} className={name === '카테고리' ? 'category-item' : ''}>
+          <li key={option.id} css={name === '카테고리' ? categoryItemStyle : undefined}>
             {name === '카테고리' ? (
               <>
                 <label>{option.name}</label>
-                <IcChevronDown className="down-icon" />
+                <IcChevronDown css={iconStyle} />
               </>
             ) : (
               <FilterOption
@@ -60,16 +65,14 @@ const FilterCategory = ({ name, options, selectedFilters, onChange }: FilterCate
         ))}
       </ul>
 
-      {/* 카테고리 펼쳐보기 */}
-      {(name === '브랜드' || name === '색상') && (
-        <div className="view-all-banner" onClick={handleToggleViewAll}>
+      {(name === '카테고리' || name === '브랜드' || name === '색상') && (
+        <div css={viewAllBannerStyle(theme)} onClick={handleToggleViewAll}>
           <span>{isViewAllOpen ? `${name} 모두보기 닫기` : `${name} 모두보기`}</span>
-          {isViewAllOpen ? <IcChevronUp className="up-icon" /> : <IcChevronDown className="down-icon" />}
+          {isViewAllOpen ? <IcChevronUp css={iconStyle} /> : <IcChevronDown css={iconStyle} />}
         </div>
       )}
 
-      {/* Vector icon */}
-      <IcVector129 className={`category-vector-icon ${name === '색상' ? 'hide-vector' : ''}`} />
+      <IcVector129 css={[vectorIconStyle, name === '색상' && { display: 'none' }]} />
     </div>
   );
 };

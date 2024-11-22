@@ -1,5 +1,4 @@
-
-import { conditionStyle } from './FilterCondition.style';
+import { conditionContainerStyle } from './FilterCondition.style';
 import FilterCategory from './FilterCategory';
 import { mockConditionData } from 'src/constants/mocks/filterCondition';
 
@@ -10,10 +9,10 @@ interface FilterConditionProps {
 
 const FilterCondition = ({ selectedFilters, onChange }: FilterConditionProps) => {
   return (
-    <div css={conditionStyle}>
+    <div css={conditionContainerStyle}>
       <FilterCategory
         name="상태"
-        options={mockConditionData} // Mock data for 상태 (Condition)
+        options={mockConditionData} // Mock 데이터 사용
         selectedFilters={selectedFilters}
         onChange={onChange}
       />
@@ -22,4 +21,3 @@ const FilterCondition = ({ selectedFilters, onChange }: FilterConditionProps) =>
 };
 
 export default FilterCondition;
-
