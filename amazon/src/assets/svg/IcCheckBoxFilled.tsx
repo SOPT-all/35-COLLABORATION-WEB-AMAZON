@@ -7,9 +7,9 @@ const SvgIcCheckBoxFilled = (props: SVGProps<SVGSVGElement>) => (
       <path
         d="M8 11.6667L11.2857 15L16 10"
         stroke="white"
-        stroke-width="1.2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </g>
     <rect x="4.5" y="4.5" width="15" height="15" rx="3.5" stroke="#FF9900" />

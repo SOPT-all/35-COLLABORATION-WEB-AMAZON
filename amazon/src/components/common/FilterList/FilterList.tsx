@@ -1,10 +1,5 @@
-import { useTheme } from '@emotion/react';
 import { useState } from 'react';
-import { ThemeType } from '../../../styles/theme';
-import FilterContainer from './FIlterContainer';
-import SelectedFilters from './SelectedFilters';
-import PriceFilter from './FilterPrice';
-import { containerStyle, sectionStyle, titleStyle } from './FilterList.style';
+
 import {
   IcColorchipBlack,
   IcColorchipRed,
@@ -26,8 +21,12 @@ import {
   IcColorchipYellow,
 } from '@svg';
 
+import FilterContainer from './FIlterContainer';
+import { containerStyle, sectionStyle, titleStyle } from './FilterList.style';
+import PriceFilter from './FilterPrice';
+import SelectedFilters from './SelectedFilters';
+
 const FilterList = () => {
-  const theme = useTheme() as ThemeType;
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
   const [priceRange, setPriceRange] = useState<{ min: string; max: string }>({ min: '', max: '' });
 
@@ -131,10 +130,10 @@ const FilterList = () => {
   ];
 
   return (
-    <div css={containerStyle(theme)}>
+    <div css={containerStyle}>
       {selectedFilters.length > 0 && (
         <div css={sectionStyle}>
-          <span css={titleStyle(theme)}>선택한 필터</span>
+          <span css={titleStyle}>선택한 필터</span>
           <SelectedFilters selected={selectedFilters} onRemove={handleFilterRemove} />
         </div>
       )}

@@ -1,4 +1,5 @@
 import { IcCheckBoxUnfilled, IcCheckBoxFilled } from '@svg';
+
 import { containerStyle, iconStyle, labelStyle, colorChipStyle } from './FilterOption.style';
 
 interface FilterOptionProps {

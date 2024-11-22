@@ -1,17 +1,17 @@
 import { css } from '@emotion/react';
-import { ThemeType } from '../../../styles/theme';
 
-export const categoryStyle = (theme: ThemeType) => css`
+import theme from '@styles/theme';
+
+export const categoryStyle = css`
   h3 {
     ${theme.font.title_b_16};
     color: ${theme.color.black};
-    margin-bottom: 0.8rem; 
+    margin-bottom: 0.8rem;
   }
 
   ul {
     display: flex;
     flex-direction: column;
-    
   }
 
   li {
@@ -23,10 +23,9 @@ export const categoryStyle = (theme: ThemeType) => css`
       ${theme.font.title_m_16};
       color: ${theme.color.black};
       cursor: pointer;
-      width: 18.8rem; 
+      width: 18.8rem;
       flex-grow: 1;
       text-align: left;
-      
     }
   }
 `;
@@ -37,11 +36,11 @@ export const iconStyle = css`
   align-items: center;
 `;
 
-export const viewAllBannerStyle = (theme: ThemeType) => css`
+export const viewAllBannerStyle = css`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.8rem; /* rem 사용 */
+  padding: 0.8rem;
   margin-top: 0.8rem;
   background-color: ${theme.color.white1};
   cursor: pointer;
@@ -56,7 +55,7 @@ export const vectorIconStyle = css`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-top: 2.4rem; /* rem 사용 */
+  margin-top: 2.4rem;
   margin-bottom: 2.4rem;
 `;
 
@@ -65,5 +64,5 @@ export const hideVectorStyle = css`
 `;
 
 export const categoryItemStyle = css`
-  margin-bottom: 0.8rem; /* rem 사용 */
+  margin-bottom: 0.8rem;
 `;

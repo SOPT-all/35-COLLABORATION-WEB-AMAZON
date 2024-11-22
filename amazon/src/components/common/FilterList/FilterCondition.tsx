@@ -1,6 +1,7 @@
-import { conditionContainerStyle } from './FilterCondition.style';
-import FilterCategory from './FilterCategory';
 import { mockConditionData } from 'src/constants/mocks/filterCondition';
+
+import FilterCategory from './FilterCategory';
+import { conditionContainerStyle } from './FilterCondition.style';
 
 interface FilterConditionProps {
   selectedFilters: string[];

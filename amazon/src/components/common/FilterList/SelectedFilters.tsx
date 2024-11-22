@@ -1,6 +1,5 @@
-import { useTheme } from '@emotion/react';
-import { ThemeType } from '../../../styles/theme';
 import { IcRemove } from '@svg';
+
 import { selectedFiltersStyle, filterTagStyle } from './SelectedFilter.style';
 
 interface SelectedFiltersProps {
@@ -9,8 +8,6 @@ interface SelectedFiltersProps {
 }
 
 const SelectedFilters = ({ selected, onRemove }: SelectedFiltersProps): JSX.Element => {
-  const theme = useTheme() as ThemeType;
-
   const getFormattedFilter = (filter: string): string => {
     if (filter.startsWith('브랜드: ')) {
       return filter.replace('브랜드: ', '브랜드: ');
@@ -24,7 +21,7 @@ const SelectedFilters = ({ selected, onRemove }: SelectedFiltersProps): JSX.Elem
   return (
     <div css={selectedFiltersStyle}>
       {selected.map((filter) => (
-        <div key={filter} css={filterTagStyle(theme)}>
+        <div key={filter} css={filterTagStyle}>
           <span>{getFormattedFilter(filter)}</span>
           <IcRemove onClick={() => onRemove(filter)} />
         </div>

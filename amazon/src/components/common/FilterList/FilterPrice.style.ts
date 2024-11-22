@@ -1,7 +1,8 @@
 import { css } from '@emotion/react';
-import { ThemeType } from '../../../styles/theme';
 
-export const filterPriceStyle = (theme: ThemeType) => ({
+import theme from '@styles/theme';
+
+export const filterPriceStyle = {
   root: css`
     display: flex;
     flex-direction: column;
@@ -21,9 +22,9 @@ export const filterPriceStyle = (theme: ThemeType) => ({
   priceVectorIcon: css`
     margin: 2.4rem 0;
   `,
-});
+};
 
-export const inputStyle = (theme: ThemeType) => css`
+export const inputStyle = css`
   -moz-appearance: textfield;
   -webkit-appearance: none;
   appearance: none;

@@ -1,13 +1,13 @@
 import BottomLoginRecommend from './BottomLoginRecommend/BottomLoginRecommend';
 import BottomRecommend from './BottomRecommend/BottomRecommend';
 import Breadcrumb from './Breadcrumb/Breadcrumb';
+import FilterList from './FilterList/FilterList';
 import Header from './Header/Header';
 import HorizontalScroll from './HorizontalScroll/HorizontalScroll';
 import MainCard from './MainCard/MainCard';
 import MainCarousel from './MainCarousel/MainCarousel';
 import ProductList from './ProductList/ProductList';
 import SearchBar from './SearchBar/SearchBar';
-import FilterList from './FilterList/FilterList';
 import SortingBar from './SortingBar/SortingBar';
 
 export {
@@ -21,5 +21,5 @@ export {
   MainCard,
   HorizontalScroll,
   FilterList,
-  SortingBar
+  SortingBar,
 };
