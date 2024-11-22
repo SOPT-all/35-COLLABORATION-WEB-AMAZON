@@ -5,6 +5,7 @@ import theme from '@styles/theme';
 export const breadcrumbContainer = css`
   width: 100%;
   padding: 1.2rem 2.8rem;
+  margin-bottom: 4rem;
   border-top: 1px solid ${theme.color.gray3};
   border-bottom: 1px solid ${theme.color.gray3};
   background: ${theme.color.gray4};

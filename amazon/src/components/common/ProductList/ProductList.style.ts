@@ -6,6 +6,7 @@ export const productCardList = css`
   align-content: center;
   width: 102.8rem;
   padding: 0.8rem;
+  margin: 3.3rem 0 4.8rem 0;
 `;
 
 export const listContainer = css`

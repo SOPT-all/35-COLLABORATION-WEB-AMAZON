@@ -1,12 +1,5 @@
-import { Outlet } from 'react-router-dom';
-
 const Home = () => {
-  return (
-    <div>
-      Home
-      <Outlet />
-    </div>
-  );
+  return <div>Home</div>;
 };
 
 export default Home;

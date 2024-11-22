@@ -79,6 +79,7 @@ export const NavigationBar = css`
   display: flex;
   align-items: center;
   gap: 1.6rem;
+  width: 100%;
   height: 4.1rem;
   background-color: ${theme.color.navy};
 `;
