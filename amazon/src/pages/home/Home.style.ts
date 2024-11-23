@@ -2,8 +2,6 @@ import { css } from '@emotion/react';
 
 export const homeStyle = css`
   width: 100%;
-  overflow-x: hidden;
-  
 `;
 
 export const headerStyle = css`
@@ -12,13 +10,12 @@ export const headerStyle = css`
 `;
 
 export const sectionStyle = css`
-  width: 100%;
-  position: absolute;
-  top: 35rem;
 
 `;
 
 export const cardStyle = css`
+ position: absolute;
+  top: 35rem;
   gap: 1.4rem;
   display: flex;
   flex-direction: row;
@@ -27,8 +24,11 @@ export const cardStyle = css`
 `;
 
 export const scrollStyle = css`
-  margin: 0 2.2rem 3rem 2.2rem;
+  margin: 12rem 2.2rem 3rem 2.2rem;
+  overflow-x: hidden;
+  
 `;
+
 export const loginRecommendStyle = css`
   margin-bottom: 3rem;
 `;
