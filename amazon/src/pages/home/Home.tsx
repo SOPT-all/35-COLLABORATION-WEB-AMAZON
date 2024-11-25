@@ -1,4 +1,4 @@
-import { MainCarousel, BottomLoginRecommend, MainCard, HorizontalScroll, Header } from '@components';
+import { MainCarousel, BottomLoginRecommend, MainCard, HorizontalScroll } from '@components';
 import { images } from '@constants';
 import { IcGradationBanner } from '@svg';
 import {
@@ -27,55 +27,56 @@ const mainCardImages2: { img: string; text: string }[] = [
 const Home = () => {
   return (
     <>
-      <div css={homeStyle}>
-        <div css={headerStyle}>
+      <section css={homeStyle}>
+        {/* MainCarousel */}
+        <section css={headerStyle}>
           <MainCarousel />
-          <div css={iconStyle}>
+          <section css={iconStyle}>
             <IcGradationBanner />
-          </div>
-
-          <section css={sectionStyle}>
-            <section css={cardStyle}>
-              <MainCard mainCardImages={mainCardImages1} />
-              <MainCard mainCardImages={mainCardImages2} />
-              <MainCard mainCardImages={mainCardImages1} />
-              <MainCard mainCardImages={mainCardImages2} />
-            </section>
-            <section css={cardStyle}>
-              <MainCard mainCardImages={mainCardImages1} />
-              <MainCard mainCardImages={mainCardImages2} />
-              <MainCard mainCardImages={mainCardImages1} />
-              <MainCard mainCardImages={mainCardImages2} />
-            </section>
-
-            <section css={scrollStyle}>
-              <HorizontalScroll title={'가전 제품 및 주방의 베스트셀러'} images={images} />
-            </section>
-            <section css={scrollStyle}>
-              <HorizontalScroll title={'가전 제품 및 주방의 베스트셀러'} images={images} />
-            </section>
-
-            <section css={cardStyle}>
-              <MainCard mainCardImages={mainCardImages1} />
-              <MainCard mainCardImages={mainCardImages2} />
-              <MainCard mainCardImages={mainCardImages1} />
-              <MainCard mainCardImages={mainCardImages2} />
-            </section>
-
-            <section css={scrollStyle}>
-              <HorizontalScroll title={'가전 제품 및 주방의 베스트셀러'} images={images} />
-            </section>
-            <section css={scrollStyle}>
-              <HorizontalScroll title={'가전 제품 및 주방의 베스트셀러'} images={images} />
-            </section>
-
-            <section css={loginRecommendStyle}>
-              <BottomLoginRecommend />
-            </section>
-
           </section>
-        </div>
-      </div>
+        </section>
+
+        {/* 카드 섹션 */}
+        <section css={sectionStyle}>
+          <section css={cardStyle}>
+            <MainCard mainCardImages={mainCardImages1} />
+            <MainCard mainCardImages={mainCardImages2} />
+            <MainCard mainCardImages={mainCardImages1} />
+            <MainCard mainCardImages={mainCardImages2} />
+          </section>
+          <section css={cardStyle}>
+            <MainCard mainCardImages={mainCardImages1} />
+            <MainCard mainCardImages={mainCardImages2} />
+            <MainCard mainCardImages={mainCardImages1} />
+            <MainCard mainCardImages={mainCardImages2} />
+          </section>
+
+          <section css={scrollStyle}>
+            <HorizontalScroll title={'가전 제품 및 주방의 베스트셀러'} images={images} />
+          </section>
+          <section css={scrollStyle}>
+            <HorizontalScroll title={'가전 제품 및 주방의 베스트셀러'} images={images} />
+          </section>
+
+          <section css={cardStyle}>
+            <MainCard mainCardImages={mainCardImages1} />
+            <MainCard mainCardImages={mainCardImages2} />
+            <MainCard mainCardImages={mainCardImages1} />
+            <MainCard mainCardImages={mainCardImages2} />
+          </section>
+        
+          <section css={scrollStyle}>
+            <HorizontalScroll title={'가전 제품 및 주방의 베스트셀러'} images={images} />
+          </section>
+          <section css={scrollStyle}>
+            <HorizontalScroll title={'가전 제품 및 주방의 베스트셀러'} images={images} />
+          </section>
+
+          <section css={loginRecommendStyle}>
+            <BottomLoginRecommend />
+          </section>
+        </section>
+      </section>
     </>
   );
 };

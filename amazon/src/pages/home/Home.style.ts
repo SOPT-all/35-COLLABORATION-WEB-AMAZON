@@ -3,13 +3,16 @@ import theme from '@styles/theme';
 
 export const homeStyle = css`
   width: 100%;
-  height: 103.7vh;
+  min-height: 100vh; 
+  position: relative;
   background-color: ${theme.color.white2};
+  padding-bottom: 3rem; 
 `;
 
 export const headerStyle = css`
   position: relative;
-  top: 0;
+  width: 100%;
+  z-index: 1;
 `;
 
 export const iconStyle = css`
@@ -19,19 +22,18 @@ export const iconStyle = css`
   height: 10rem;
   justify-content: center;
   align-items: center;
-  align-self: stretch;
 `;
 
 export const sectionStyle = css`
-  position: absolute;
+  position: relative; 
   width: 100%;
-  top: 35rem;
+  margin-top: -30rem; 
+  z-index: 2;
   display: flex;
   flex-direction: column;
 `;
 
 export const cardStyle = css`
-  top: 35rem;
   gap: 1.4rem;
   display: flex;
   margin: 0 2.2rem 3rem 2.2rem;
@@ -42,12 +44,11 @@ export const cardStyle = css`
 `;
 
 export const scrollStyle = css`
-  margin: 0rem 2.2rem 3rem 2.2rem;
+  margin: 0em 2.2rem 3rem 2.2rem;
   overflow-x: hidden;
   background-color: ${theme.color.white1};
 `;
 
 export const loginRecommendStyle = css`
-  margin-bottom: 3rem;
   background-color: ${theme.color.white1};
 `;
