@@ -1,7 +1,15 @@
 import { MainCarousel, BottomLoginRecommend, MainCard, HorizontalScroll, Header } from '@components';
 import { images } from '@constants';
-
-import { homeStyle, sectionStyle, scrollStyle, cardStyle, loginRecommendStyle, headerStyle } from './Home.style';
+import { IcGradationBanner } from '@svg';
+import {
+  homeStyle,
+  sectionStyle,
+  scrollStyle,
+  cardStyle,
+  loginRecommendStyle,
+  headerStyle,
+  iconStyle,
+} from './Home.style';
 import mainCardImage2 from '../../assets/images/img_main_card10.svg';
 import mainCardImage3 from '../../assets/images/img_main_card11.svg';
 import mainCardImage4 from '../../assets/images/img_main_card12.svg';
@@ -23,19 +31,50 @@ const Home = () => {
         <div css={headerStyle}>
           <Header />
           <MainCarousel />
-        </div>
+          <div css={iconStyle}>
+            <IcGradationBanner />
+          </div>
 
-        <div css={sectionStyle}>
-          <div css={cardStyle}>
-            <MainCard mainCardImages={mainCardImages1} />
-            <MainCard mainCardImages={mainCardImages2} />
-          </div>
-          <div css={scrollStyle}>
-            <HorizontalScroll title={'가전 제품 및 주방의 베스트셀러'} images={images} />
-          </div>
-          <div css={loginRecommendStyle}>
-            <BottomLoginRecommend />
-          </div>
+          <section css={sectionStyle}>
+            <section css={cardStyle}>
+              <MainCard mainCardImages={mainCardImages1} />
+              <MainCard mainCardImages={mainCardImages2} />
+              <MainCard mainCardImages={mainCardImages1} />
+              <MainCard mainCardImages={mainCardImages2} />
+            </section>
+            <section css={cardStyle}>
+              <MainCard mainCardImages={mainCardImages1} />
+              <MainCard mainCardImages={mainCardImages2} />
+              <MainCard mainCardImages={mainCardImages1} />
+              <MainCard mainCardImages={mainCardImages2} />
+            </section>
+
+            <section css={scrollStyle}>
+              <HorizontalScroll title={'가전 제품 및 주방의 베스트셀러'} images={images} />
+            </section>
+            <section css={scrollStyle}>
+              <HorizontalScroll title={'가전 제품 및 주방의 베스트셀러'} images={images} />
+            </section>
+
+            <section css={cardStyle}>
+              <MainCard mainCardImages={mainCardImages1} />
+              <MainCard mainCardImages={mainCardImages2} />
+              <MainCard mainCardImages={mainCardImages1} />
+              <MainCard mainCardImages={mainCardImages2} />
+            </section>
+
+            <section css={scrollStyle}>
+              <HorizontalScroll title={'가전 제품 및 주방의 베스트셀러'} images={images} />
+            </section>
+            <section css={scrollStyle}>
+              <HorizontalScroll title={'가전 제품 및 주방의 베스트셀러'} images={images} />
+            </section>
+
+            <section css={loginRecommendStyle}>
+              <BottomLoginRecommend />
+            </section>
+
+          </section>
         </div>
       </div>
     </>
