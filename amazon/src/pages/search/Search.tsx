@@ -16,7 +16,9 @@ const Search = () => {
           <BottomRecommend />
         </section>
       </main>
-      <BottomLoginRecommend />
+      <section>
+        <BottomLoginRecommend />
+      </section>
     </div>
   );
 };
