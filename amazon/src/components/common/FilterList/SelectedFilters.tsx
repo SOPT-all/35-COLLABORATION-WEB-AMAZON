@@ -1,7 +1,6 @@
 import { IcRemove, IcVector129 } from '@svg';
 
 import { selectedFiltersStyle, filterTagStyle } from './SelectedFilter.style';
-import { iconStyle } from './FilterCategory.style';
 
 interface SelectedFiltersProps {
   selected: string[];
