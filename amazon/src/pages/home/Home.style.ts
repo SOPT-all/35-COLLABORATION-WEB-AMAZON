@@ -26,7 +26,6 @@ export const sectionStyle = css`
   position: absolute;
   width: 100%;
   top: 35rem;
-
   display: flex;
   flex-direction: column;
 `;
@@ -49,8 +48,6 @@ export const scrollStyle = css`
 `;
 
 export const loginRecommendStyle = css`
-
   margin-bottom: 3rem;
- background-color: ${theme.color.white1};
-  
+  background-color: ${theme.color.white1};
 `;
