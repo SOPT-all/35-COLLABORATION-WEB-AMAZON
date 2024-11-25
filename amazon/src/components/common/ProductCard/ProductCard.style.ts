@@ -90,6 +90,7 @@ export const rightArrowIcon = css`
 export const cartIcon = css`
   width: 2.4rem;
   height: 2.4rem;
+  cursor: pointer;
 `;
 
 export const ratingBox = css`

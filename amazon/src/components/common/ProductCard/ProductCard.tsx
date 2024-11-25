@@ -52,6 +52,10 @@ const ProductCard = ({ product }: ProductDataProps) => {
     freeDeliveryStandard,
   } = product;
 
+  const handleCartClick = () => {
+    alert('장바구니에 추가됨');
+  };
+
   return (
     <div css={cardContainer}>
       <div css={imageBox}>
@@ -64,7 +68,12 @@ const ProductCard = ({ product }: ProductDataProps) => {
             {brand}
             <IcChevronRight css={rightArrowIcon} />
           </h1>
-          <IcCart css={cartIcon} />
+          <IcCart
+            css={[cartIcon, { cursor: 'pointer' }]}
+            onClick={handleCartClick}
+            role="button"
+            aria-label="Add to Cart"
+          />
         </div>
         <h2>{name}</h2>
         <div css={ratingBox}>
