@@ -2,6 +2,7 @@ import BottomLoginRecommend from './BottomLoginRecommend/BottomLoginRecommend';
 import BottomRecommend from './BottomRecommend/BottomRecommend';
 import Breadcrumb from './Breadcrumb/Breadcrumb';
 import FilterList from './FilterList/FilterList';
+import Footer from './Footer/Footer';
 import Header from './Header/Header';
 import HorizontalScroll from './HorizontalScroll/HorizontalScroll';
 import MainCard from './MainCard/MainCard';
@@ -22,4 +23,5 @@ export {
   HorizontalScroll,
   FilterList,
   SortingBar,
+  Footer,
 };
