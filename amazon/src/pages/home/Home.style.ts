@@ -3,7 +3,7 @@ import theme from '@styles/theme';
 
 export const homeStyle = css`
   width: 100%;
-  height: 103vh;
+  height: 103.5vh;
   background-color: ${theme.color.white2};
 `;
 
@@ -49,7 +49,7 @@ export const scrollStyle = css`
 `;
 
 export const loginRecommendStyle = css`
-// margin-top:3rem;
+
   margin-bottom: 3rem;
  background-color: ${theme.color.white1};
   

@@ -29,7 +29,6 @@ const Home = () => {
     <>
       <div css={homeStyle}>
         <div css={headerStyle}>
-          <Header />
           <MainCarousel />
           <div css={iconStyle}>
             <IcGradationBanner />
