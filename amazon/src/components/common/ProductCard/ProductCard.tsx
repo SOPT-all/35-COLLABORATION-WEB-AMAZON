@@ -1,4 +1,6 @@
-import { IcCart, IcChevronRight, IcStar, IcVector120, IcFreedelivery } from '@svg';
+import { useState } from 'react';
+
+import { IcCart, IcChevronRight, IcStar, IcVector120, IcFreedelivery, IcCartHover, IcCartAdd } from '@svg';
 import formatDeliveryDate from '@utils';
 
 import {
@@ -52,8 +54,23 @@ const ProductCard = ({ product }: ProductDataProps) => {
     freeDeliveryStandard,
   } = product;
 
+  const [cartButton, setCartButton] = useState<'default' | 'hover' | 'clicked'>('default');
+  const [toastVisible, setToastVisible] = useState(false);
+  const [toastCheckCardStatus, setToastCheckCardStatus] = useState<'success' | 'error'>('success');
+
   const handleCartClick = () => {
+    setCartButton('clicked');
     alert('장바구니에 추가됨');
+  };
+
+  const renderCartButton = () => {
+    if (cartButton === 'hover') {
+      return <IcCartHover css={cartIcon} />;
+    }
+    if (cartButton === 'clicked') {
+      return <IcCartAdd css={cartIcon} />;
+    }
+    return <IcCart css={cartIcon} />;
   };
 
   return (
@@ -68,12 +85,14 @@ const ProductCard = ({ product }: ProductDataProps) => {
             {brand}
             <IcChevronRight css={rightArrowIcon} />
           </h1>
-          <IcCart
-            css={[cartIcon, { cursor: 'pointer' }]}
+          <div
             onClick={handleCartClick}
+            onMouseEnter={() => setCartButton('hover')}
+            onMouseLeave={() => setCartButton('default')}
             role="button"
-            aria-label="Add to Cart"
-          />
+            aria-label="Add to Cart">
+            {renderCartButton()}
+          </div>
         </div>
         <h2>{name}</h2>
         <div css={ratingBox}>
