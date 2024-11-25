@@ -3,7 +3,7 @@ import theme from '@styles/theme';
 
 export const homeStyle = css`
   width: 100%;
-  height: 103.5vh;
+  height: 103.7vh;
   background-color: ${theme.color.white2};
 `;
 
