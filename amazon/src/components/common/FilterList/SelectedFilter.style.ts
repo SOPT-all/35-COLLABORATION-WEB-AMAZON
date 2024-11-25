@@ -6,7 +6,7 @@ export const selectedFiltersStyle = css`
   display: flex;
   flex-wrap: wrap;
   gap: 0.8rem;
-  margin-bottom: 1rem;
+  margin-bottom: 2.4rem;
 `;
 
 export const filterTagStyle = css`
