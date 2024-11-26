@@ -1,6 +1,9 @@
+import { useEffect } from 'react';
+
 import { MainCarousel, BottomLoginRecommend, MainCard, HorizontalScroll } from '@components';
 import { images } from '@constants';
 import { IcGradationBanner } from '@svg';
+
 import {
   homeStyle,
   sectionStyle,
@@ -25,6 +28,12 @@ const mainCardImages2: { img: string; text: string }[] = [
 ];
 
 const Home = () => {
+  useEffect(() => {
+    const userId = localStorage.getItem('userId');
+    if (!userId) {
+      localStorage.setItem('userId', '1');
+    }
+  }, []);
   return (
     <>
       <section css={homeStyle}>
@@ -64,7 +73,7 @@ const Home = () => {
             <MainCard mainCardImages={mainCardImages1} />
             <MainCard mainCardImages={mainCardImages2} />
           </section>
-        
+
           <section css={scrollStyle}>
             <HorizontalScroll title={'가전 제품 및 주방의 베스트셀러'} images={images} />
           </section>

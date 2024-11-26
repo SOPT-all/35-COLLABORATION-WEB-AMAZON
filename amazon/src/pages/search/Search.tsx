@@ -1,6 +1,6 @@
 import { Breadcrumb, FilterList, SortingBar, ProductList, BottomRecommend, BottomLoginRecommend } from '@components';
 
-import { mainContainer, searchContainer } from './Search.style';
+import { bottomLoginSection, mainContainer, searchContainer } from './Search.style';
 
 const Search = () => {
   return (
@@ -16,7 +16,7 @@ const Search = () => {
           <BottomRecommend />
         </section>
       </main>
-      <section>
+      <section css={bottomLoginSection}>
         <BottomLoginRecommend />
       </section>
     </div>
