@@ -13,3 +13,8 @@ export const mainContainer = css`
   padding: 0 1.4rem 0 1.6rem;
   gap: 1.6rem;
 `;
+
+export const bottomLoginSection = css`
+  margin-top: 8rem;
+  margin-bottom: 6.4rem;
+`;

@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react';
 
-import { mockRecentSearches } from '@constants';
+import { getSearchHistory } from '@apis/getSearchHistory';
+
 import { IcHeaderSearch, IcSearchbar, IcClose } from '@svg';
 
 import {
@@ -21,15 +22,17 @@ import {
   headerButtonStyle,
 } from './SearchBar.style';
 
-interface RecentSearch {
-  id: string;
+interface RecentSearchData {
   keyword: string;
   searchDate: string;
+}
+interface RecentSearch extends RecentSearchData {
+  id: string;
 }
 
 const SearchBar = () => {
   const [query, setQuery] = useState('');
-  const [recentSearches, setRecentSearches] = useState<RecentSearch[]>(mockRecentSearches);
+  const [recentSearches, setRecentSearches] = useState<RecentSearch[]>([]);
   const [isSearchBarActive, setIsSearchBarActive] = useState(false);
   const searchBarRef = useRef<HTMLDivElement>(null);
 
@@ -47,9 +50,19 @@ const SearchBar = () => {
     }
   };
 
-  const handleFocus = () => {
+  const handleFocus = async () => {
     setIsSearchBarActive(true);
     document.addEventListener('mousedown', handleOutsideClick);
+    try {
+      const searchHistory = await getSearchHistory();
+      const newSearchHistory = searchHistory.map((item: RecentSearchData, index: number) => ({
+        ...item,
+        id: index.toString(),
+      }));
+      setRecentSearches(newSearchHistory);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const handleBlur = () => {

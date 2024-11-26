@@ -61,7 +61,7 @@ export const recentSearchContainer = css`
   border: 1px solid ${theme.color.orange1};
   border-radius: 4px;
   background: ${theme.color.white1};
-  z-index: 1;
+  z-index: 2;
 `;
 
 export const recentHeaderStyle = css`
