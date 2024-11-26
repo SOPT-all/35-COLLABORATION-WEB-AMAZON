@@ -51,5 +51,6 @@ export { default as IcToastCheck } from './IcToastCheck';
 export { default as IcToastX } from './IcToastX';
 export { default as IcCartHover } from './IcCartHover';
 export { default as IcCartAdd } from './IcCartAdd';
+export { default as IcGradationBanner } from './IcGradationBanner';
 
 export { default as Vite } from './Vite';

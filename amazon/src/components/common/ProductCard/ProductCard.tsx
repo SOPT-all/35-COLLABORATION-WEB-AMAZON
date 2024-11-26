@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import { postCart } from '@apis/shoppingCart/postCart';
+
 import { IcCart, IcChevronRight, IcStar, IcVector120, IcFreedelivery, IcCartHover, IcCartAdd } from '@svg';
 import formatDeliveryDate from '@utils';
 
@@ -23,6 +25,7 @@ import {
 
 interface ProductDataProps {
   product: {
+    id: number;
     image: string;
     brand: string;
     name: string;
@@ -40,6 +43,7 @@ interface ProductDataProps {
 
 const ProductCard = ({ product }: ProductDataProps) => {
   const {
+    id,
     image,
     brand,
     name,
@@ -58,9 +62,20 @@ const ProductCard = ({ product }: ProductDataProps) => {
   const [toastVisible, setToastVisible] = useState(false);
   const [toastCheckCardStatus, setToastCheckCardStatus] = useState<'success' | 'error'>('success');
 
-  const handleCartClick = () => {
-    setCartButton('clicked');
-    alert('장바구니에 추가됨');
+  const handleCartClick = async () => {
+    try {
+      const result = await postCart(1, id);
+      if (result.success) {
+        setCartButton('clicked');
+        setToastCheckCardStatus('success');
+      } else {
+        setToastCheckCardStatus('error');
+      }
+    } catch (error) {
+      setToastCheckCardStatus('error');
+    } finally {
+      setToastVisible(true);
+    }
   };
 
   const renderCartButton = () => {

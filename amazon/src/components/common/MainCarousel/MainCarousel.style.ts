@@ -21,7 +21,7 @@ export const imageStyle = css`
 
 export const iconStyle = css`
   position: absolute;
-  top: 50%;
+  top: 17.9rem;
   transform: translateY(-50%);
   width: 8.4rem;
   height: 100%;

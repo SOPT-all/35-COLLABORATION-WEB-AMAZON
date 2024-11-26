@@ -69,7 +69,7 @@ const Dev = () => {
         <FilterList />
       </div>
       <div css={sectionStyle}>
-        <Footer />
+      <Footer />
       </div>
     </>
   );

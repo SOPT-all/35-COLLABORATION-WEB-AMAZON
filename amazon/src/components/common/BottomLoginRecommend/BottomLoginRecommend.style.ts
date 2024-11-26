@@ -9,7 +9,7 @@ export const BottomLoginRecommendContainer = css`
   width: 136.6rem;
   height: 21.9rem;
   padding: 4.8rem 0;
-  margin: 8rem 0 6.4rem 0;
+
   border-top: 1px solid ${theme.color.gray3};
   border-bottom: 1px solid ${theme.color.gray3};
 `;
