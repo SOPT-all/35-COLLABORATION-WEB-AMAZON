@@ -124,7 +124,6 @@ const FilterList = () => {
 
       {sortedFilters.map((filterCategory) =>
         filterCategory.name === '가격' ? (
-          // Render PriceFilter here for "가격"
           <div css={sectionStyle} key="price">
             <PriceFilter
               priceRange={priceRange}

@@ -13,7 +13,7 @@ const FilterCondition = ({ selectedFilters, onChange }: FilterConditionProps) =>
     <div css={conditionContainerStyle}>
       <FilterCategory
         name="상태"
-        options={mockConditionData} // Mock 데이터 사용
+        options={mockConditionData} 
         selectedFilters={selectedFilters}
         onChange={onChange}
       />
