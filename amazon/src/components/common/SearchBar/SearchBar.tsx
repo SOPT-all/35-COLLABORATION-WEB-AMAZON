@@ -2,7 +2,6 @@ import { useState, useRef } from 'react';
 
 import { getSearchHistory } from '@apis/getSearchHistory';
 
-import { mockRecentSearches } from '@constants';
 import { IcHeaderSearch, IcSearchbar, IcClose } from '@svg';
 
 import {
@@ -33,7 +32,7 @@ interface RecentSearch extends RecentSearchData {
 
 const SearchBar = () => {
   const [query, setQuery] = useState('');
-  const [recentSearches, setRecentSearches] = useState<RecentSearch[]>(mockRecentSearches);
+  const [recentSearches, setRecentSearches] = useState<RecentSearch[]>([]);
   const [isSearchBarActive, setIsSearchBarActive] = useState(false);
   const searchBarRef = useRef<HTMLDivElement>(null);
 
