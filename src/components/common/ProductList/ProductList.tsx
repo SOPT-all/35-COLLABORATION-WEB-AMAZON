@@ -1,23 +1,11 @@
-import { getProducts } from '@apis/getProducts';
 import { useEffect, useState } from 'react';
+
+import { getProducts } from '@apis/getProducts';
+
+import ProductData from 'src/types/productDataProps';
 
 import { listContainer, productCardList } from './ProductList.style';
 import ProductCard from '../ProductCard/ProductCard';
-// 상품 데이터 타입 정의
-interface Product {
-  id: number;
-  image: string;
-  brand: string;
-  name: string;
-  isBestSeller: boolean;
-  rating: number;
-  reviewCount: number;
-  discountRate: number;
-  price: number;
-  isFreeDelivery: boolean;
-  deliveryDate: string;
-  freeDeliveryStandard: number;
-}
 
 interface ProductListProps {
   keyword: string;
@@ -25,7 +13,7 @@ interface ProductListProps {
 }
 
 const ProductList = ({ keyword, sort }: ProductListProps) => {
-  const [products, setProducts] = useState<Product[]>([]); // 명시적 타입 추가
+  const [products, setProducts] = useState<ProductData[]>([]); // 명시적 타입 추가
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -53,7 +41,7 @@ const ProductList = ({ keyword, sort }: ProductListProps) => {
       <div css={listContainer}>
         {products.map((product) => {
           const discountedPrice = Math.floor(product.price * (1 - product.discountRate / 100));
-          return <ProductCard key={index} product={product} discountedPrice={discountedPrice} />;
+          return <ProductCard key={product.id} product={product} discountedPrice={discountedPrice} />;
         })}
       </div>
     </section>

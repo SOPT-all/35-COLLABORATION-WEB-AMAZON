@@ -28,7 +28,8 @@ import {
 import ProductData from '../../../types/productDataProps';
 import ToastCheckCard from '../ToastCheckCard/ToastCheckCard';
 
-interface ProductDataProps extends ProductData {
+interface ProductDataProps {
+  product: ProductData;
   discountedPrice: number;
 }
 
