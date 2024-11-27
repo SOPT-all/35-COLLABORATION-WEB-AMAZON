@@ -10,12 +10,14 @@ import MainCarousel from './MainCarousel/MainCarousel';
 import ProductList from './ProductList/ProductList';
 import SearchBar from './SearchBar/SearchBar';
 import SortingBar from './SortingBar/SortingBar';
+import ToastCheckCard from './ToastCheckCard/ToastCheckCard';
 
 export {
   MainCarousel,
   Breadcrumb,
   SearchBar,
   ProductList,
+  ToastCheckCard,
   BottomLoginRecommend,
   BottomRecommend,
   Header,

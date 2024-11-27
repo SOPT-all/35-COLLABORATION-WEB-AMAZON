@@ -9,7 +9,7 @@ const ProductList = () => {
       <div css={listContainer}>
         {products.data.map((product, index) => {
           const discountedPrice = Math.floor(product.price * (1 - product.discountRate / 100));
-          return <ProductCard key={index} product={{ ...product, discountedPrice }} />;
+          return <ProductCard key={index} product={product} discountedPrice={discountedPrice} />;
         })}
       </div>
     </section>
