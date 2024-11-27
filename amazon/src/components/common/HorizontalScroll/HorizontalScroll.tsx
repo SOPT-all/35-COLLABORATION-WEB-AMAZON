@@ -29,7 +29,6 @@ const HorizontalScroll = ({ title, images }: HorizontalScrollProps) => {
   const updateScrollButtons = () => {
     if (wrapperRef.current) {
       const { scrollLeft, scrollWidth, clientWidth } = wrapperRef.current;
-      console.log(scrollLeft, scrollWidth, clientWidth);
       setCanScrollLeft(scrollLeft > 0);
       setCanScrollRight(scrollLeft + clientWidth < scrollWidth);
     }
