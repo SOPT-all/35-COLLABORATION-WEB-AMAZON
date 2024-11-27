@@ -1,34 +1,15 @@
-import { AxiosError } from 'axios';
+import { client } from '@apis/client';
 
-import instance from '@apis/axios';
+import { END_POINT } from '@constants';
 
-export async function postCart(memberId: number, productId: number) {
+export const postCart = async (productId: number) => {
   try {
-    const response = await instance.post(
-      `/api/v1/cart/${productId}`,
-      {},
-      {
-        headers: { 'Member-Id': memberId },
-      }
-    );
-    return { success: true, cartCount: response.data.cartCount };
-  } catch (error: unknown) {
-    if (error instanceof AxiosError) {
-      const { response } = error;
-      if (response) {
-        return {
-          success: false,
-          status: response.status,
-          message: response.data?.message || '알 수 없는 오류가 발생했습니다.',
-        };
-      }
+    const response = await client.post(END_POINT.POST_CART_PRODUCT(productId));
+    console.log(response.data);
+    return response.data;
+  } catch (error) {
+    if (error instanceof Error) {
+      throw new Error(error.message);
     }
-
-    // AxiosError가 아닌 다른 에러 처리
-    return {
-      success: false,
-      status: 500,
-      message: '알 수 없는 오류가 발생했습니다.',
-    };
   }
-}
+};
