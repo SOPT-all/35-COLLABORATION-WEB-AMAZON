@@ -18,26 +18,25 @@ interface FilterCategoryProps {
   onChange: (filter: string, category?: string) => void;
 }
 
-const getDisplayedOptions = (
-  name: string,
-  options: { id: number; name: string; colorChip?: React.ReactNode }[],
-  isViewAllOpen: boolean
-) => {
-  if (name === '브랜드') {
-    return isViewAllOpen ? options : options.slice(0, 7);
-  }
-  if (name === '색상') {
-    return isViewAllOpen ? options : options.slice(0, 5);
-  }
-  return options;
-};
-
 const FilterCategory = ({ name, options, selectedFilters, onChange }: FilterCategoryProps) => {
   const [isViewAllOpen, setIsViewAllOpen] = useState(false);
 
   const handleToggleViewAll = () => setIsViewAllOpen((prev) => !prev);
 
-  const displayedOptions = getDisplayedOptions(name, options, isViewAllOpen);
+  const displayedOptions =
+    name === '카테고리'
+      ? isViewAllOpen
+        ? options
+        : options.slice(0, 4) 
+      : name === '브랜드'
+      ? isViewAllOpen
+        ? options
+        : options.slice(0, 7) 
+      : name === '색상'
+      ? isViewAllOpen
+        ? options
+        : options.slice(0, 5) 
+      : options;
 
   return (
     <div css={categoryStyle}>
@@ -57,7 +56,7 @@ const FilterCategory = ({ name, options, selectedFilters, onChange }: FilterCate
                   name === '브랜드' ? `브랜드: ${option.name}` : name === '색상' ? `색상: ${option.name}` : option.name
                 )}
                 onChange={(filter) => onChange(filter, name)}
-                colorChip={option.colorChip}
+                colorChip={name === '색상' ? option.colorChip : undefined}
               />
             )}
           </li>

@@ -1,6 +1,7 @@
 import { IcHeaderLocation, IcHeaderLanguage, IcHeaderCart, IcHambuger } from '@svg';
 import { useNavigate } from 'react-router-dom';
 import { HeaderLogoImage } from 'src/constants/images';
+import { useCart } from 'src/context/cartContext';
 
 import {
   HeaderContainer,
@@ -23,7 +24,8 @@ import SearchBar from '../SearchBar/SearchBar';
 const navItems = ['세일', '맞춤형 추천', '기프트 카드', '고객 서비스', '판매자 페이지'];
 
 const Header = () => {
-  const cartCount = 5; // 임시 장바구니 담은 수 값
+
+  const { cartCount } = useCart(); // 장바구니 담은 수 값
   const navigate = useNavigate();
 
   const handleSearch = (keyword: string) => {

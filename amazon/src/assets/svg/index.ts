@@ -47,6 +47,10 @@ export { default as IcColorchipSkyBlue } from './IcColorchipSkyBlue';
 export { default as IcColorchipBlue } from './IcColorchipBlue';
 export { default as IcColorchipNavy } from './IcColorchipNavy';
 export { default as IcColorchipPurple } from './IcColorchipPurple';
+export { default as IcToastCheck } from './IcToastCheck';
+export { default as IcToastX } from './IcToastX';
+export { default as IcCartHover } from './IcCartHover';
+export { default as IcCartAdd } from './IcCartAdd';
 export { default as IcGradationBanner } from './IcGradationBanner';
 
 export { default as Vite } from './Vite';

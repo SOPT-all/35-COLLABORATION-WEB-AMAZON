@@ -53,7 +53,7 @@ const ProductList = ({ keyword, sort }: ProductListProps) => {
       <div css={listContainer}>
         {products.map((product) => {
           const discountedPrice = Math.floor(product.price * (1 - product.discountRate / 100));
-          return <ProductCard key={product.id} product={{ ...product, discountedPrice }} />;
+          return <ProductCard key={index} product={product} discountedPrice={discountedPrice} />;
         })}
       </div>
     </section>

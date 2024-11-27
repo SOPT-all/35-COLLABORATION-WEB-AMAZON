@@ -1,24 +1,27 @@
 import FilterCategory from './FilterCategory';
 
 interface FilterContainerProps {
-  data: { id: number; name: string; optionList: { id: number; name: string; colorChip?: React.ReactNode }[] }[];
+  data: {
+    id: number;
+    name: string;
+    optionList: {
+      id: number;
+      name: string;
+      colorChip?: React.ReactNode;
+    }[];
+  };
+  onChange: (filter: string, category?: string) => void;
   selectedFilters: string[];
-  onChange: (filter: string) => void;
 }
 
 const FilterContainer = ({ data, selectedFilters, onChange }: FilterContainerProps) => {
   return (
-    <>
-      {data.map(({ id, name, optionList }) => (
-        <FilterCategory
-          key={id}
-          name={name}
-          options={optionList}
-          selectedFilters={selectedFilters}
-          onChange={onChange}
-        />
-      ))}
-    </>
+    <FilterCategory
+      name={data.name}
+      options={data.optionList}
+      selectedFilters={selectedFilters}
+      onChange={onChange}
+    />
   );
 };
 

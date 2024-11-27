@@ -1,6 +1,6 @@
 import { IcRemove, IcVector129 } from '@svg';
 
-import { selectedFiltersStyle, filterTagStyle } from './SelectedFilter.style';
+import { selectedFiltersStyle, filterTagStyle, vectorStyle } from './SelectedFilter.style';
 
 interface SelectedFiltersProps {
   selected: string[];
@@ -27,9 +27,10 @@ const SelectedFilters = ({ selected, onRemove }: SelectedFiltersProps): JSX.Elem
             <IcRemove onClick={() => onRemove(filter)} />
           </div>
         ))}
-         <IcVector129 />
+        <div css={vectorStyle}>
+          <IcVector129 />
+        </div>
       </div>
-     
     </>
   );
 };
