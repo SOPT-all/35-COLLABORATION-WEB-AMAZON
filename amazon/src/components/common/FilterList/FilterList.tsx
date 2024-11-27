@@ -71,10 +71,10 @@ const FilterList = () => {
           옐로우: <IcColorchipYellow />,
         };
 
-        const transformedData: FilterCategory[] = data.map((filter: any) => ({
+        const transformedData: FilterCategory[] = data.map((filter: FilterCategory) => ({
           id: filter.id,
           name: filter.name,
-          optionList: filter.optionList.map((option: any) => ({
+          optionList: filter.optionList.map((option: FilterOption) => ({
             id: option.id,
             name: option.name,
             colorChip: filter.name === '색상' ? colorChipMapping[option.name] || null : null,
