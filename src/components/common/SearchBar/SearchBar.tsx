@@ -1,6 +1,8 @@
-import { getSearchHistory } from '@apis/getSearchHistory';
-import { IcHeaderSearch, IcSearchbar, IcClose } from '@svg';
 import { useState, useRef, useEffect } from 'react';
+
+import { getSearchHistory } from '@apis/getSearchHistory';
+
+import { IcHeaderSearch, IcSearchbar, IcClose } from '@svg';
 
 import {
   searchBarContainer,
