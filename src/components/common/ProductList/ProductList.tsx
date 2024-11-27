@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 import { getProducts } from '@apis/getProducts';
 
-import ProductData from 'src/types/productDataProps';
+import ProductData from 'src/types/productData';
 
 import { listContainer, productCardList } from './ProductList.style';
 import ProductCard from '../ProductCard/ProductCard';

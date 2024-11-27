@@ -40,7 +40,14 @@ export const successSection = css`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 1.6rem;
+  text-align: center;
+
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.6rem;
+  }
 `;
 
 export const failSection = css`

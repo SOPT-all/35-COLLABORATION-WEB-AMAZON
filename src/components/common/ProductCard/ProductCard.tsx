@@ -25,7 +25,7 @@ import {
   rightArrowIcon,
   vectorIcon,
 } from './ProductCard.style';
-import ProductData from '../../../types/productDataProps';
+import ProductData from '../../../types/productData';
 import ToastCheckCard from '../ToastCheckCard/ToastCheckCard';
 
 interface ProductDataProps {
@@ -34,8 +34,9 @@ interface ProductDataProps {
 }
 
 const ProductCard = ({ product, discountedPrice }: ProductDataProps) => {
-  const { showToast, isToastVisible } = useToast();
   const { updateCartCount } = useCart();
+  const { showToast, isToastVisible } = useToast();
+
   const {
     id,
     image,
@@ -49,25 +50,24 @@ const ProductCard = ({ product, discountedPrice }: ProductDataProps) => {
     isFreeDelivery,
     deliveryDate,
     freeDeliveryStandard,
-    isInCart,
+    isInCart: isInCartBoolean,
   } = product;
 
-  const [cartButton, setCartButton] = useState<'default' | 'clicked'>('default');
+  const [isInCart, setIsInCart] = useState(isInCartBoolean);
   const [toastCheckCardStatus, setToastCheckCardStatus] = useState<'success' | 'error'>('success');
 
-  const handleCardClick = () => {
-    if (cartButton === 'default') {
-      handleAddCartClick();
-    } else if (cartButton === 'clicked') {
+  const handleCartClick = () => {
+    if (isInCart) {
       handleMinusCartClick();
+    } else {
+      handleAddCartClick();
     }
   };
 
   const handleAddCartClick = async () => {
-    setCartButton('clicked');
-
     try {
       const result = await postCart(id);
+
       if (result.success) {
         updateCartCount(result.cartCount);
         setToastCheckCardStatus('success');
@@ -75,29 +75,27 @@ const ProductCard = ({ product, discountedPrice }: ProductDataProps) => {
         setToastCheckCardStatus('error');
       }
     } catch (error) {
-      console.log(error);
+      console.error('장바구니 추가 에러:', error);
       setToastCheckCardStatus('error');
     } finally {
+      setIsInCart(true);
+      setToastCheckCardStatus('success');
       showToast();
     }
   };
 
   const handleMinusCartClick = async () => {
-    setCartButton('default');
-
     try {
       const result = await deleteCart(id);
       if (result.success) {
         updateCartCount(result.cartCount);
-        setToastCheckCardStatus('success');
       } else {
-        setToastCheckCardStatus('error');
+        console.error('장바구니 삭제 실패');
       }
     } catch (error) {
-      console.log(error);
-      setToastCheckCardStatus('error');
+      console.error(error);
     } finally {
-      showToast();
+      setIsInCart(false);
     }
   };
 
@@ -116,7 +114,7 @@ const ProductCard = ({ product, discountedPrice }: ProductDataProps) => {
               {brand}
               <IcChevronRight css={rightArrowIcon} />
             </h1>
-            <div onClick={handleCardClick} role="button" aria-label="Add to Cart">
+            <div onClick={handleCartClick} role="button" aria-label="Add to Cart">
               {isInCart ? <IcCartAdd css={cartIcon} /> : <IcCart css={cartIcon} />}
             </div>
           </div>
@@ -139,7 +137,7 @@ const ProductCard = ({ product, discountedPrice }: ProductDataProps) => {
                 <del>{price.toLocaleString()}</del>
               </div>
               <div css={discountRateText}>
-                <span> {`${discountRate}%`}</span>
+                <span>{`${discountRate}%`}</span>
                 <span>{discountedPrice?.toLocaleString()}</span>
                 <span>원</span>
               </div>

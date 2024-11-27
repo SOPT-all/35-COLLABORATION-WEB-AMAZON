@@ -15,8 +15,10 @@ const ToastCheckCard = ({ status }: ToastCheckCardProps) => {
     <div css={cardContainer}>
       {status === 'success' ? (
         <section css={successSection} aria-label="Add to Cart">
-          <IcToastCheck css={checkIcon} />
-          <h3>장바구니에 추가됨</h3>
+          <div>
+            <IcToastCheck css={checkIcon} />
+            <h3>장바구니에 추가됨</h3>
+          </div>
         </section>
       ) : (
         <section css={failSection} aria-label="Nothing Add to Cart">
