@@ -9,6 +9,10 @@ export const selectedFiltersStyle = css`
   margin-bottom: 2.4rem;
 `;
 
+export const vectorStyle = css`
+  margin-top: 1.6rem;
+`;
+
 export const filterTagStyle = css`
   display: flex;
   align-items: center;
