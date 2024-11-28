@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { deleteCartCount } from '@apis/shoppingCart/deleteCartCount';
 import { postCartCount } from '@apis/shoppingCart/postCartCount';
 
+import { ToastCheckCard } from '@components';
 import { IcCart, IcChevronRight, IcStar, IcVector120, IcFreedelivery, IcCartAdd } from '@svg';
 import formatDeliveryDate from '@utils';
 import { useCart } from 'src/context/cartContext';
@@ -25,8 +26,8 @@ import {
   rightArrowIcon,
   vectorIcon,
 } from './ProductCard.style';
-import ProductData from '../../../types/productData';
-import ToastCheckCard from '../ToastCheckCard/ToastCheckCard';
+
+import { ProductData } from '@types';
 
 interface ProductDataProps {
   product: ProductData;
