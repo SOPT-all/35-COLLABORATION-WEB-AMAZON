@@ -48,37 +48,37 @@ const Home = () => {
         {/* 카드 섹션 */}
         <section css={sectionStyle}>
           <section css={cardStyle}>
-            <MainCard mainCardImages={mainCardImages1} />
-            <MainCard mainCardImages={mainCardImages2} />
-            <MainCard mainCardImages={mainCardImages1} />
-            <MainCard mainCardImages={mainCardImages2} />
+            <MainCard title="50$ 미만의 홈 데코" mainCardImages={mainCardImages1} />
+            <MainCard title="시계 베스트" mainCardImages={mainCardImages2} />
+            <MainCard title="당신의 집에 꼭 필요한 물건들" mainCardImages={mainCardImages1} />
+            <MainCard title="$50 미만의 홈 신제품" mainCardImages={mainCardImages2} />
           </section>
           <section css={cardStyle}>
-            <MainCard mainCardImages={mainCardImages1} />
-            <MainCard mainCardImages={mainCardImages2} />
-            <MainCard mainCardImages={mainCardImages1} />
-            <MainCard mainCardImages={mainCardImages2} />
+            <MainCard title="게이밍 악세사리" mainCardImages={mainCardImages1} />
+            <MainCard title="패션 홀리데이 특가" mainCardImages={mainCardImages2} />
+            <MainCard title="$20 미만의 소소한 선물" mainCardImages={mainCardImages1} />
+            <MainCard title="내 게임 시작하기" mainCardImages={mainCardImages2} />
           </section>
 
           <section css={scrollStyle}>
             <HorizontalScroll title={'가전 제품 및 주방의 베스트셀러'} images={images} />
           </section>
           <section css={scrollStyle}>
-            <HorizontalScroll title={'가전 제품 및 주방의 베스트셀러'} images={images} />
+            <HorizontalScroll title={'신규 고객 해외 구매'} images={images} />
           </section>
 
           <section css={cardStyle}>
-            <MainCard mainCardImages={mainCardImages1} />
-            <MainCard mainCardImages={mainCardImages2} />
-            <MainCard mainCardImages={mainCardImages1} />
-            <MainCard mainCardImages={mainCardImages2} />
+            <MainCard title="대한민국으로의 무료 배송" mainCardImages={mainCardImages1} />
+            <MainCard title="귀하의 쇼핑 내역에서 영감을 얻은 기프트 아이디어" mainCardImages={mainCardImages2} />
+            <MainCard title="나를 위한 뷰티 제품 알아보기" mainCardImages={mainCardImages1} />
+            <MainCard title="뷰티 루틴 한 단계 업그레이드" mainCardImages={mainCardImages2} />
           </section>
 
           <section css={scrollStyle}>
-            <HorizontalScroll title={'가전 제품 및 주방의 베스트셀러'} images={images} />
+            <HorizontalScroll title={'$20 미만 가정 인테리어 용품'} images={images} />
           </section>
           <section css={scrollStyle}>
-            <HorizontalScroll title={'가전 제품 및 주방의 베스트셀러'} images={images} />
+            <HorizontalScroll title={'장난감 및 게임의 베스트셀러'} images={images} />
           </section>
 
           <section css={loginRecommendStyle}>
