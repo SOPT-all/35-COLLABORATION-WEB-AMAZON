@@ -4,7 +4,7 @@ import { sortingBarContainer, sortingKeywordBox, activeKeywordBox } from './Sort
 
 const sortBy = [
   { key: 'POPULARITY', label: '인기순' },
-  { key: 'REVIEWCOUNT', label: '리뷰 많은 순' },
+  { key: 'REVIEWCOUNT', label: '리뷰 많은순' },
   { key: 'SALES', label: '판매순' },
   { key: 'LOWPRICE', label: '낮은 가격순' },
   { key: 'LATESTPRODUCTS', label: '신상품순' },
