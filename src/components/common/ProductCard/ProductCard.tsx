@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
-import { deleteCart } from '@apis/shoppingCart/deleteCart';
-import { postCart } from '@apis/shoppingCart/postCart';
+import { deleteCartCount } from '@apis/shoppingCart/deleteCartCount';
+import { postCartCount } from '@apis/shoppingCart/postCartCount';
 
 import { IcCart, IcChevronRight, IcStar, IcVector120, IcFreedelivery, IcCartAdd } from '@svg';
 import formatDeliveryDate from '@utils';
@@ -66,7 +66,7 @@ const ProductCard = ({ product, discountedPrice }: ProductDataProps) => {
 
   const handleAddCartClick = async () => {
     try {
-      const result = await postCart(id);
+      const result = await postCartCount(id);
 
       if (result.success) {
         updateCartCount(result.cartCount);
@@ -86,7 +86,7 @@ const ProductCard = ({ product, discountedPrice }: ProductDataProps) => {
 
   const handleMinusCartClick = async () => {
     try {
-      const result = await deleteCart(id);
+      const result = await deleteCartCount(id);
       if (result.success) {
         updateCartCount(result.cartCount);
       } else {

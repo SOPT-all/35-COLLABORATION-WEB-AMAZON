@@ -1,4 +1,7 @@
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+
+import { getCartCount } from '@apis/shoppingCart/getCartCount';
 
 import { IcHeaderLocation, IcHeaderLanguage, IcHeaderCart, IcHambuger } from '@svg';
 import { HeaderLogoImage } from 'src/constants/images';
@@ -25,19 +28,35 @@ import SearchBar from '../SearchBar/SearchBar';
 const navItems = ['세일', '맞춤형 추천', '기프트 카드', '고객 서비스', '판매자 페이지'];
 
 const Header = () => {
-  const { cartCount } = useCart(); // 장바구니 담은 수 값
+  const [cartCount, setCartCount] = useState(0); // 장바구니 초기값
+  const { updateCartCount } = useCart(); // CartContext에서 업데이트 함수
   const navigate = useNavigate();
+
+  // 장바구니 카운트 가져오기
+  useEffect(() => {
+    const fetchCartCount = async () => {
+      try {
+        const response = await getCartCount();
+        if (response?.cartCount !== undefined) {
+          setCartCount(response.cartCount);
+          updateCartCount(response.cartCount); // 전역 상태 업데이트
+        }
+      } catch (error) {
+        console.error('장바구니 카운트 가져오기 에러:', error);
+      }
+    };
+
+    fetchCartCount();
+  }, [updateCartCount]);
 
   const handleSearch = (keyword: string) => {
     const trimmedKeyword = keyword.trim();
     if (trimmedKeyword) {
-      // 검색어가 비어있지 않을 때만 이동하게
       navigate(`/search?keyword=${trimmedKeyword}`);
     }
   };
 
   const handleLogoClick = () => {
-    // 로고 클릭 시 '/' 경로로 이동
     navigate('/');
   };
 
