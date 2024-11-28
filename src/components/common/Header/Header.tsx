@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { getCartCount } from '@apis/shoppingCart/getCartCount';
 
-import { IcHeaderLocation, IcHeaderLanguage, IcHeaderCart, IcHambuger } from '@svg';
+import { IcHeaderLocation, IcHeaderLanguage, IcHeaderCart, IcHamburger } from '@svg';
 import { HeaderLogoImage } from 'src/constants/images';
 import { useCart } from 'src/context/cartContext';
 
@@ -91,7 +91,7 @@ const Header = () => {
       {/* 네비게이션 바 */}
       <nav css={NavigationBar}>
         <button css={AllMenuButton}>
-          <IcHambuger css={HamburgerStyle} />
+          <IcHamburger css={HamburgerStyle} />
           <span css={NavigationItem}>모두</span>
         </button>
         {navItems.map((item, index) => (
