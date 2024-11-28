@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 
 import { MainCarousel, BottomLoginRecommend, MainCard, HorizontalScroll } from '@components';
-import { images } from '@constants';
+import { scrollImages1, scrollImages2, scrollImages3, scrollImages4 } from '@constants';
 import { IcGradationBanner } from '@svg';
 
 import {
@@ -130,10 +130,10 @@ const Home = () => {
           </section>
 
           <section css={scrollStyle}>
-            <HorizontalScroll title={'가전 제품 및 주방의 베스트셀러'} images={images} />
+            <HorizontalScroll title={'가전 제품 및 주방의 베스트셀러'} images={scrollImages1} />
           </section>
           <section css={scrollStyle}>
-            <HorizontalScroll title={'신규 고객 해외 구매'} images={images} />
+            <HorizontalScroll title={'신규 고객 해외 구매'} images={scrollImages2} />
           </section>
 
           <section css={cardStyle}>
@@ -144,10 +144,10 @@ const Home = () => {
           </section>
 
           <section css={scrollStyle}>
-            <HorizontalScroll title={'$20 미만 가정 인테리어 용품'} images={images} />
+            <HorizontalScroll title={'$20 미만 가정 인테리어 용품'} images={scrollImages3} />
           </section>
           <section css={scrollStyle}>
-            <HorizontalScroll title={'장난감 및 게임의 베스트셀러'} images={images} />
+            <HorizontalScroll title={'장난감 및 게임의 베스트셀러'} images={scrollImages4} />
           </section>
 
           <section css={loginRecommendStyle}>
