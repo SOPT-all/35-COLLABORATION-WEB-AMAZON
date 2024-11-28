@@ -9,11 +9,11 @@ import ProductCard from '../ProductCard/ProductCard';
 
 interface ProductListProps {
   keyword: string;
-  sort: 'POPULARITY' | 'REVIEWCOUNT' | 'SALES' | 'LOWPRICE' | 'LATESTPRODUCTS'; // 정확한 타입 지정
+  sort: 'POPULARITY' | 'REVIEWCOUNT' | 'SALES' | 'LOWPRICE' | 'LATESTPRODUCTS';
 }
 
 const ProductList = ({ keyword, sort }: ProductListProps) => {
-  const [products, setProducts] = useState<ProductData[]>([]); // 명시적 타입 추가
+  const [products, setProducts] = useState<ProductData[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -22,9 +22,9 @@ const ProductList = ({ keyword, sort }: ProductListProps) => {
       setLoading(true);
       try {
         const data = await getProducts({ keyword, sort });
-        setProducts(data); // 데이터가 올바르게 설정되도록 타입 일치
+        setProducts(data);
       } catch (err) {
-        console.error('Error fetching products:', err); // err 사용
+        console.error('Error fetching products:', err);
         setError('상품 데이터를 불러오는 중 문제가 발생했습니다.');
       } finally {
         setLoading(false);
