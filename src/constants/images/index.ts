@@ -50,12 +50,34 @@ const MainScrollCardImage46 = '/image/mainScrolls/img_main_card56.png';
 const MainScrollCardImage47 = '/image/mainScrolls/img_main_card58.png';
 const MainScrollCardImage48 = '/image/mainScrolls/img_main_card55.png';
 
-const ProductCardImage1 = '/image/productCard/img_card1.png';
-const ProductCardImage2 = '/image/productCard/img_card2.png';
-const ProductCardImage3 = '/image/productCard/img_card3.png';
-const ProductCardImage4 = '/image/productCard/img_card4.png';
-const ProductCardImage5 = '/image/productCard/img_card5.png';
-const ProductCardImage6 = '/image/productCard/img_card6.png';
+const ProductCardImage1 = '/image/productCard/img_main_card11.svg';
+const ProductCardImage2 = '/image/productCard/img_main_card12.svg';
+const ProductCardImage3 = '/image/productCard/img_main_card9.svg';
+const ProductCardImage4 = '/image/productCard/img_main_card10.svg';
+const ProductCardImage5 = '/image/productCard/img_main_card2.svg';
+const ProductCardImage6 = '/image/productCard/img_main_card3.svg';
+const ProductCardImage7 = '/image/productCard/img_main_card1.svg';
+const ProductCardImage8 = '/image/productCard/img_main_card4.svg';
+const ProductCardImage9 = '/image/productCard/img_main_card16.svg';
+const ProductCardImage10 = '/image/productCard/img_main_card15.svg';
+const ProductCardImage11 = '/image/productCard/img_main_card14.svg';
+const ProductCardImage12 = '/image/productCard/img_main_card13.svg';
+const ProductCardImage13 = '/image/productCard/img_main_card7.svg';
+const ProductCardImage14 = '/image/productCard/img_main_card8.svg';
+const ProductCardImage15 = '/image/productCard/img_main_card6.svg';
+const ProductCardImage16 = '/image/productCard/img_main_card5.svg';
+const ProductCardImage17 = '/image/productCard/img_main_card33.svg';
+const ProductCardImage18 = '/image/productCard/img_main_card34.svg';
+const ProductCardImage19 = '/image/productCard/img_main_card35.svg';
+const ProductCardImage20 = '/image/productCard/img_main_card36.svg';
+const ProductCardImage21 = '/image/productCard/img_main_card51.svg';
+const ProductCardImage22 = '/image/productCard/img_main_card52.svg';
+const ProductCardImage23 = '/image/productCard/img_main_card53.svg';
+const ProductCardImage24 = '/image/productCard/img_main_card54.svg';
+const ProductCardImage25 = '/image/productCard/img_main_card17.svg';
+const ProductCardImage26 = '/image/productCard/img_main_card20.svg';
+const ProductCardImage27 = '/image/productCard/img_main_card19.svg';
+const ProductCardImage28 = '/image/productCard/img_main_card18.svg';
 
 const HeaderLogoImage = '/image/header/img_header_logo.svg';
 
@@ -126,6 +148,28 @@ const productCardImages = [
   ProductCardImage4,
   ProductCardImage5,
   ProductCardImage6,
+  ProductCardImage7,
+  ProductCardImage8,
+  ProductCardImage9,
+  ProductCardImage10,
+  ProductCardImage11,
+  ProductCardImage12,
+  ProductCardImage13,
+  ProductCardImage14,
+  ProductCardImage15,
+  ProductCardImage16,
+  ProductCardImage17,
+  ProductCardImage18,
+  ProductCardImage19,
+  ProductCardImage20,
+  ProductCardImage21,
+  ProductCardImage22,
+  ProductCardImage23,
+  ProductCardImage24,
+  ProductCardImage25,
+  ProductCardImage26,
+  ProductCardImage27,
+  ProductCardImage28,
 ];
 
 export { scrollImages1, scrollImages2, scrollImages3, scrollImages4, productCardImages, HeaderLogoImage };
