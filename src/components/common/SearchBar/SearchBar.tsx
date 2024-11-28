@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { forwardRef, useImperativeHandle, useState, useEffect } from 'react';
 
 import { getSearchHistory } from '@apis/getSearchHistory';
 
@@ -33,37 +33,62 @@ interface RecentSearch extends RecentSearchData {
 
 interface SearchBarProps {
   onKeywordChange: (keyword: string) => void;
+  initialQuery?: string; // URL에서 가져온 검색어
 }
 
-const LOCAL_STORAGE_KEY = 'searchQuery';
-
-const SearchBar = ({ onKeywordChange }: SearchBarProps) => {
-  const [query, setQuery] = useState('');
+const SearchBar = forwardRef(({ onKeywordChange, initialQuery = '' }: SearchBarProps, ref) => {
+  const [query, setQuery] = useState(initialQuery);
   const [recentSearches, setRecentSearches] = useState<RecentSearch[]>([]);
   const [isSearchBarActive, setIsSearchBarActive] = useState(false);
-  const searchBarRef = useRef<HTMLDivElement>(null);
 
-  // 검색어 삭제 기능
-  const handleDelete = (id: string) => {
-    setRecentSearches((prev) => prev.filter((item) => item.id !== id));
-  };
+  // 부모 컴포넌트에서 호출 가능한 메서드 정의
+  useImperativeHandle(ref, () => ({
+    resetQuery: () => {
+      setQuery('');
+    },
+  }));
 
-  // 전체 삭제 기능
-  const handleDeleteAll = () => {
-    setRecentSearches([]);
-  };
-
-  // 외부 클릭 감지하여 최근 검색어 리스트 닫기
-  const handleOutsideClick = (event: MouseEvent) => {
-    if (searchBarRef.current && !searchBarRef.current.contains(event.target as Node)) {
+  // 검색 버튼 클릭
+  const handleSearch = () => {
+    const trimmedQuery = query.trim();
+    if (trimmedQuery) {
+      onKeywordChange(trimmedQuery);
+      updateRecentSearches(trimmedQuery);
       setIsSearchBarActive(false);
     }
   };
 
-  // 검색 바에 포커스 될 때 최근 검색어 가져오기
+  // 엔터 키 입력하면 검색 실행
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Enter') {
+      handleSearch();
+    }
+  };
+
+  // 최근 검색어 업데이트
+  const updateRecentSearches = (keyword: string) => {
+    const timestamp = new Date().toISOString();
+    const newSearch = { id: timestamp, keyword, searchDate: new Date().toLocaleString() };
+
+    setRecentSearches((prev) => {
+      const filtered = prev.filter((item) => item.keyword !== keyword);
+      return [newSearch, ...filtered].slice(0, 5);
+    });
+  };
+
+  // 최근 검색어 삭제
+  const handleDeleteRecent = (id: string) => {
+    setRecentSearches((prev) => prev.filter((item) => item.id !== id));
+  };
+
+  // 최근 검색어 전체 삭제
+  const handleDeleteAll = () => {
+    setRecentSearches([]);
+  };
+
+  // 검색창에 포커스 시 최근 검색어 활성화
   const handleFocus = async () => {
     setIsSearchBarActive(true);
-    document.addEventListener('mousedown', handleOutsideClick);
     try {
       const searchHistory = await getSearchHistory();
       const newSearchHistory = searchHistory.map((item: RecentSearchData, index: number) => ({
@@ -76,51 +101,18 @@ const SearchBar = ({ onKeywordChange }: SearchBarProps) => {
     }
   };
 
-  // 검색 바에서 포커스 아웃될 때 이벤트 제거
+  // 검색창에서 포커스 아웃 시 최근 검색어 비활성화
   const handleBlur = () => {
-    document.removeEventListener('mousedown', handleOutsideClick);
+    setTimeout(() => setIsSearchBarActive(false), 200); // 클릭 처리가 끝난 후 닫히게
   };
 
-  // 검색 버튼 클릭 또는 Enter 키 입력 시 검색 실행
-  const handleSearch = () => {
-    const trimmedQuery = query.trim();
-    if (trimmedQuery) {
-      onKeywordChange(trimmedQuery); // 부모 컴포넌트로 검색어 전달
-      localStorage.setItem(LOCAL_STORAGE_KEY, trimmedQuery); // 검색어 저장
-      setIsSearchBarActive(false);
-    }
-  };
-
-  // Enter 키 입력 시 검색 실행
-  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === 'Enter') {
-      handleSearch();
-    }
-  };
-
-  // 검색어 클릭 시 검색 실행
-  const handleRecentSearchClick = (keyword: string) => {
-    setQuery(keyword);
-    onKeywordChange(keyword);
-    localStorage.setItem(LOCAL_STORAGE_KEY, keyword); // 검색어 저장
-    setIsSearchBarActive(false);
-  };
-
-  // 컴포넌트 초기화 시 로컬스토리지에서 검색어 불러오기
+  // 초기 검색어 설정
   useEffect(() => {
-    const savedQuery = localStorage.getItem(LOCAL_STORAGE_KEY);
-    if (savedQuery) {
-      setQuery(savedQuery); // 상태 초기화
-    }
-
-    return () => {
-      // 컴포넌트 언마운트 시 검색어 초기화
-      localStorage.removeItem(LOCAL_STORAGE_KEY); // localStorage에서 검색어 삭제
-    };
-  }, []);
+    setQuery(initialQuery);
+  }, [initialQuery]);
 
   return (
-    <div ref={searchBarRef}>
+    <div>
       {/* 검색 바 */}
       <div css={searchBarContainer} onFocus={handleFocus} onBlur={handleBlur}>
         <input
@@ -145,17 +137,22 @@ const SearchBar = ({ onKeywordChange }: SearchBarProps) => {
               전체 삭제
             </button>
           </div>
-
           {recentSearches.length > 0 ? (
             <ul css={recentListStyle}>
               {recentSearches.map(({ id, keyword, searchDate }) => (
                 <li key={id} css={recentItemStyle}>
                   <IcSearchbar css={searchIconStyle} />
-                  <span css={keywordStyle} onClick={() => handleRecentSearchClick(keyword)}>
+                  <span
+                    css={keywordStyle}
+                    onClick={() => {
+                      setQuery(keyword);
+                      onKeywordChange(keyword);
+                      setIsSearchBarActive(false);
+                    }}>
                     {keyword}
                   </span>
                   <span css={dateStyle}>{searchDate}</span>
-                  <IcClose css={deleteIconStyle} onClick={() => handleDelete(id)} />
+                  <IcClose css={deleteIconStyle} onClick={() => handleDeleteRecent(id)} />
                 </li>
               ))}
             </ul>
@@ -166,6 +163,6 @@ const SearchBar = ({ onKeywordChange }: SearchBarProps) => {
       )}
     </div>
   );
-};
+});
 
 export default SearchBar;

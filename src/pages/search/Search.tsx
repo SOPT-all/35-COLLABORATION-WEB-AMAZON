@@ -2,7 +2,7 @@ import { Breadcrumb, FilterList, SortingBar, ProductList, BottomRecommend, Botto
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
-import { bottomLoginSection, mainContainer, searchContainer } from './Search.style';
+import { bottomLoginSection, mainContainer, searchContainer, searchResultTitle } from './Search.style';
 
 const Search = () => {
   const location = useLocation();
@@ -26,6 +26,7 @@ const Search = () => {
           <FilterList />
         </section>
         <section>
+          <h1 css={searchResultTitle}>'{keyword}' 검색결과</h1>
           <SortingBar onSortChange={(selectedSort) => setSort(selectedSort)} />
           <ProductList keyword={keyword} sort={sort} />
           <BottomRecommend />

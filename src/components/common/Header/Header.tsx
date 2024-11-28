@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 import { getCartCount } from '@apis/shoppingCart/getCartCount';
 
@@ -28,9 +28,14 @@ import SearchBar from '../SearchBar/SearchBar';
 const navItems = ['세일', '맞춤형 추천', '기프트 카드', '고객 서비스', '판매자 페이지'];
 
 const Header = () => {
-  const [cartCount, setCartCount] = useState(0); // 장바구니 초기값
-  const { updateCartCount } = useCart(); // CartContext에서 업데이트 함수
+  const [cartCount, setCartCount] = useState(0);
+  const { updateCartCount } = useCart();
   const navigate = useNavigate();
+  const location = useLocation();
+
+  // URL에서 keyword 추출
+  const searchParams = new URLSearchParams(location.search);
+  const keyword = searchParams.get('keyword') || '';
 
   // 장바구니 카운트 가져오기
   useEffect(() => {
@@ -71,7 +76,7 @@ const Header = () => {
         <IcHeaderLocation css={LocationIconStyle} />
 
         <div css={SearchBarWrapper}>
-          <SearchBar onKeywordChange={handleSearch} />
+          <SearchBar onKeywordChange={handleSearch} initialQuery={keyword} />
         </div>
 
         <div css={HeaderActionButtonsWrapper}>
