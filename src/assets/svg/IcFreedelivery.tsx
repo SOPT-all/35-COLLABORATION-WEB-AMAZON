@@ -1,5 +1,5 @@
 import type { SVGProps } from 'react';
-const SvgIcFreedelivery = (props: SVGProps<SVGSVGElement>) => (
+const SvgIcIcFreedelivery = (props: SVGProps<SVGSVGElement>) => (
   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 55 16" {...props}>
     <path
       stroke="#06F"
@@ -28,4 +28,4 @@ const SvgIcFreedelivery = (props: SVGProps<SVGSVGElement>) => (
     />
   </svg>
 );
-export default SvgIcFreedelivery;
+export default SvgIcIcFreedelivery;
