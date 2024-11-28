@@ -12,7 +12,7 @@ export { default as IcFooterLogo } from './IcFooterLogo';
 export { default as IcFooterMoneyUnit } from './IcFooterMoneyUnit';
 export { default as IcFooterNation } from './IcFooterNation';
 export { default as IcFreedelivery } from './IcFreedelivery';
-export { default as IcHambuger } from './IcHambuger';
+export { default as IcHamburger } from './IcHamburger';
 export { default as IcHeaderCart } from './IcHeaderCart';
 export { default as IcHeaderCount } from './IcHeaderCount';
 export { default as IcHeaderLanguage } from './IcHeaderLanguage';

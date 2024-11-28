@@ -15,15 +15,16 @@ interface ImageObject {
 
 interface MainCardProps {
   mainCardImages: string[] | ImageObject[];
+  title: string;
 }
 
-const MainCard = ({ mainCardImages }: MainCardProps) => {
+const MainCard = ({ mainCardImages, title }: MainCardProps) => {
   const isArray = (images: string[] | ImageObject[]): images is string[] => {
     return typeof images[0] === 'string';
   };
   return (
     <article css={mainCardContainer}>
-      <h1 css={cardTitle}>50$ 미만의 홈 데코</h1>
+      <h1 css={cardTitle}>{title}</h1>
       <div css={cardImageBox}>
         {isArray(mainCardImages) && mainCardImages.length === 1 && (
           <img src={mainCardImages[0]} alt={`mainCardImage-${mainCardImages[0]}`} css={cardOnlyImage} />

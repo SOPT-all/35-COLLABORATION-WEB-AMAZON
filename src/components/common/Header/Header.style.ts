@@ -1,4 +1,5 @@
 import { css } from '@emotion/react';
+
 import theme from '@styles/theme';
 
 export const HeaderContainer = css`
@@ -11,6 +12,7 @@ export const HeaderContainer = css`
 
 export const HeaderLogo = css`
   margin: 0 1.6rem 0 2.4rem;
+  cursor: pointer;
 
   img {
     height: 3.9rem;

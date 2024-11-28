@@ -4,14 +4,14 @@ import svgr from 'vite-plugin-svgr';
 import tsconfigPaths from 'vite-tsconfig-paths';
 // https://vitejs.dev/config/
 export default defineConfig({
-    plugins: [
-        react({ jsxImportSource: '@emotion/react' }),
-        tsconfigPaths(),
-        svgr({
-            svgrOptions: {
-                icon: true,
-                memo: true,
-            },
-        }),
-    ],
+  plugins: [
+    react({ jsxImportSource: '@emotion/react' }),
+    tsconfigPaths(),
+    svgr({
+      svgrOptions: {
+        icon: true,
+        memo: true,
+      },
+    }),
+  ],
 });

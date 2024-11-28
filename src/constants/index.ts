@@ -1,5 +1,4 @@
 import { BASE_URL, END_POINT } from './api';
-import { images, productCardImages } from './images';
-import products from './mocks/products';
+import { scrollImages1, scrollImages2, scrollImages3, scrollImages4, productCardImages } from './images';
 
-export { products, images, productCardImages, BASE_URL, END_POINT };
+export { scrollImages1, scrollImages2, scrollImages3, scrollImages4, productCardImages, BASE_URL, END_POINT };

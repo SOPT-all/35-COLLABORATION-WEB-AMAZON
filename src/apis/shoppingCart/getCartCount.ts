@@ -2,10 +2,9 @@ import { client } from '@apis/client';
 
 import { END_POINT } from '@constants';
 
-export const postCart = async (productId: number) => {
+export const getCartCount = async () => {
   try {
-    const response = await client.post(END_POINT.POST_CART_PRODUCT(productId));
-    console.log(response.data);
+    const response = await client.get(END_POINT.GET_CART_COUNT);
     return response.data;
   } catch (error) {
     if (error instanceof Error) {

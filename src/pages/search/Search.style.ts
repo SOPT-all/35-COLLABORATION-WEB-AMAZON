@@ -1,5 +1,7 @@
 import { css } from '@emotion/react';
 
+import theme from '@styles/theme';
+
 export const searchContainer = css`
   display: flex;
   flex-direction: column;
@@ -17,4 +19,10 @@ export const mainContainer = css`
 export const bottomLoginSection = css`
   margin-top: 8rem;
   margin-bottom: 6.4rem;
+`;
+
+export const searchResultTitle = css`
+  ${theme.font.title_b_24};
+  color: ${theme.color.black};
+  margin-bottom: 0.4rem;
 `;
